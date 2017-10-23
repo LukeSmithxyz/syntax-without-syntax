@@ -1,0 +1,226 @@
+\documentclass{article}
+
+\usepackage[notipa]{ot-tableau}
+\usepackage{framed}
+\usepackage[backend=biber, style=authoryear-icomp]{biblatex}
+\usepackage{easylist}
+\usepackage{hanging}
+\usepackage{hyperref}
+\usepackage{blindtext}
+\usepackage{tipa}
+\usepackage{cgloss4e}
+\usepackage{gb4e}
+\usepackage{qtree}
+\usepackage{enumerate}
+\usepackage{longtable}
+\usepackage{textgreek}
+\addbibresource{$HOME/Documents/LaTeX/uni.bib}
+
+\newcommand{\cont}{\textsc{Cont}}
+\newcommand{\iamb}{\textsc{Iamb}}
+\newcommand{\cons}{\textsc{Const}}
+\newcommand{\topf}{\textsc{Top1\textsuperscript{st}}}
+\newcommand{\nophi}{\textsc{*\textphi}}
+\newcommand{\finphi}{\textsc{Fin\textphi}}
+\newcommand{\initphi}{\textsc{Init\textphi}}
+\newcommand{\troc}{\textsc{Troc}}
+
+\ShadingOn
+
+\title{Syntax without Syntax}
+\author{Luke Smith}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Here I'll argue that a truly Minimalist account of the language faculty consists in deriving syntactic alternations and typologies directly from external constraints, among which is the constraints of the phonological/prosodic system. Taking a step in this direction, I'll offer a typological analysis of word order differences referencing not syntactic parameters, but the prosodic differences between languages. Using only prosodic constraints not unsimilar to those already used in phonological literature, I'll show an Optimality Theoretic analysis that produces a motivated typology of word orders closely resembling real-world languages. This theory also makes strong, falsifiable predictions about what phonological traits should accompany particular word orders, predictions I argue are well borne-out.
+\end{abstract}
+
+\section{The Basic Issues}
+
+\subsection{The evolutionary problem}
+
+The human language faculty is well known to be a kind of evolutionary conundrum. Superficially, language is one of the most complex instruments in the human cognitive repertoire, with a scale of application about as wide as human understanding generally. In formal terms, each instantiation of human language comprises an infinite set of possible utterances, which correspond to an equally infinite and dynamic set of possible semantic interpretations.
+
+But by itself, the complexity of language isn't particularly irregular. Language's true irregularity is the historical instantaneousness of the its development in evolutionary time and the total lack in the animal world of any generative system used for communication equivalent to it.
+
+Unlike other organs, the eye, or the endocrine or auditory system, human language lacks any intermediate forms. While some have endeavored to compare some abilities in the animal world to the syntax of human language, those animals closest to us in descent and history, the other great apes, are curiously unencumbered by any creative and recursive communicative system.
+
+It seems, therefore, that the most complex cognitive apparatus known to us sprung more or less full form without any kind of gradual Darwinian selection. Perhaps for rhetoric's sake, Chomsky himself has been careful not to call the development of language an evolutionary saltation, but this is precisely what we see (albeit perhaps with several small sequential saltations). Within the several millions of years separating man from chimpanzee, we see an immediate unfolding of all linguistic ability.
+
+\subsection{Constraints drive alternations}
+
+That is to say, the language faculty is a simple one, as is evolutionarily necessary, but the simple mechanism of language interacts with external constraints in such a way to produce languages with enormous superficial complexity and difference. This is no testament to the complexity of the language faculty itself, but to the laws of form that constrain it.
+
+For example, each utterance of human language must be ``parseable,'' in that its speakers must be able to determine what word or morpheme is meant to be interpreted as what (subject, object, agent, patient, adjunct, verb, etc.). Each sentence must also be meaningful, in the sense that the parsed meaning must correspond to something semantically well-formed and relevant. Additionally, each utterance must obey the constraints required by externalization. In the case of spoken language, this means that each utterance must flow in accordance with phonological and prosodic principles that underlie how the actual vocal tract is constructed.
+
+All of these constraints are not added details of language, but impinge quite directly on how languages are constructed.
+
+One important, yet often unnoted corollary of this conception of language is that most of the actually-existing field of linguistics, especially syntax, is \emph{not} a study of the language faculty \textit{per se}, or anything else essentially linguistic. Rather, it is a study of how a simple and unremarkable language faculty (a possible candidate being ``Merge'' in the ideas of \textcite{hauser02} and \textcite{berwick15}) interacts with external factors to yield the actual diversity of human languages. We should be clear that a truly Minimalist account of language is one that exhaustively explains the structure of languages in terms of those non-linguistic constraints that play into it.
+
+The goal of full ``consilience'' (in the terms of \textcite{wilson98}) and a unity of scientific fields might be a sisyphean one, but that doesn't make it approaching it less informative. The end of any scientific field is to unify and motivate its principles in external ones, thus leaving the intuitions of the field itself ``explained'' causally---in the sense that they are understood to be inevitable outcomes of what we know of reality outside of the field. Biology is ``complete'' when we totally reworded the principles of biology in terms of interacting chemical properties. Economics is ``complete'' when we can totally reword economic principles in the terms of the psychological and behavioral principles that underpin them. Likewise, linguistics is ``complete'' when we can totally understand the different alternations and constructions of human languages in terms of the physical and cognitive constraints that interplay to produce them.
+
+This level of ``completeness'' is likely unreachable in every single case, but it is, no less, the implicit goal of all scientific inquiry.
+
+
+
+\section{An Optimality-Theoretic Analysis}
+
+\subsection{Generation of Candidates\label{generation}}
+
+We will say that \textsc{Gen} generates candidates that vary two main ways. First, the linear order of constituents; each logical order of the elements is viable. This means that as a starting point, we have the six logical possibilities of combinations of the subject, object and verb.
+
+Secondly, \textsc{Gen} can generate candidates with various phonological constituency. That is, each of the elements (S, O and V) must be put in (and may share) a phonological phrase. This means for each of the six orders, we have four different non-vacuous candidates, say for the SVO order, we can parse the constitunents as [SVO], [S][VO], [SV][O] or [S][V][O].\footnote{There is the logical possbility of generating candidates such as [V][S][O][][], etc. with empty phonological phrases. I will not include candidates like this, but they are dealt with by the to-be-mentioned {\nophi} constraint.}
+
+\subsection{Additional Assumptions\label{assump}}
+
+Left out is the possibility of a constituent to be ``extra-metrical.'' That is, \textsc{Gen} does not generate candidates such as S[VO] or [SO]V where one element is left un-prosodified. For now, this is an issue of convenience.
+
+Additionally it will be assumed in line with the aforementioned typological generalization that subjects and objects will always receive a stress superior to that of the verb, objects receiving the most stress. Therefore, implicitly, all constituents \emph{already} have stress on them, thus [S][VO] is merely a shorthand for [{\'S}][V\textbf{\'O}]. \textsc{Gen}, therefore, does not generate candidates of the stripe [S][\textbf{\'V}\'O], etc. that violate the stress universals behind sentence constituent stress.
+
+This may seem like begging the question, but I'd argue that in reality it is precisely how a theory of prosodic word order should be formulated. To make it clear, one can look at it this way: we can replace O, S and V with H, M and L respectively, for high, mid-level and low stress. We can think of the OT derivation as deciding what points in the sentence sentential stress will be placed and phonological phrase boundaries will be formed.
+
+And then ``after'' candidate-selection, the language faculty will seamlessly map the object onto the highest stressed postition, the subject on the mid-level and the verb on the low or stressless position. The placement of these elements at the same levels of stress across all languages is precisely the constant behind word order differences. What varies is where that stressed position ends up in the sentence, and it is that which our constraints will determine.
+
+\subsection{Justification and Explanation of constraints}
+
+\subsubsection{\cont}
+
+The {\cont} (contour) principle requires that there be only one stressed element in each phonological phrase. This is a general prohibition against stress-clash, but needn't apply only to situations when the two stresses in question are directly adjacent.
+
+In the implementation, a candidate violates {\cont} if both the stressed S and O appear within the same phonological phrase. Thus [SO][V] and [SVO] violate the constraint, while [S][OV] and [S][VO] do not.
+
+\subsubsection{{\troc} and {\iamb}}
+
+\textcite{selkirk11}
+
+{\troc} and {\iamb} are similar and countervaling phonological constraints, now applied to the phrasal level. {\troc} demands that a constituent have trochaic stress (starting at the first subconstituent and alternating). And {\iamb} requires that a constituent have iambic stress (starting at the second subconstituent and alternating).
+
+In this implementation, {\troc} and {\iamb} should be understood as applying to the whole intonational phrase, and \emph{not} the phonological phrases delineated with brackets. {\troc} and {\iamb}.
+
+For example, all verb-initial languages VSO, VOS, in all possible parses, will violate {\troc}. All verb second languages (SVO, OVS) will violate {\iamb}.
+
+\subsubsection{{\initphi} and {\finphi}}
+
+{\initphi} and {\finphi} are twin countervaling constraints that desire a stressed element at either side of a phonological phrase.
+
+In practice, {\initphi} incurs a violation whenever the unstressed V appears at the left edge of a phonological phrase. {\finphi} is violated when V appears at the end of a phonological phrase.
+
+Thus, [S][VO] violates {\initphi}, [OV][S] violates {\finphi}, [SVO] violates neither, and [S][V][O] both.
+
+
+\subsubsection{\topf}
+
+{\topf} is the incarnation of the general functional tendency of languages to put old or aforementioned information as early (temporally) in a sentence as possible, with newer, focal information coming afterward.
+
+It should be additionally noted that this constraint has strong typological correlary, specifically that the overwhelming majority of languages prefer for topical elements (subject) to precede focal information (objects). \textcite{dryer13}'s tally shows that 1148 out of 1188 languages considered to have a canonical word order show a subject-before-object order (nearly 97\% of languages).
+
+In this implementation {\topf} will yield a violation for any candidate that 
+
+
+\subsubsection{\nophi}
+
+{\nophi} is simply a principle of economy applied to phonological phrasing. \textit{Ceteris paribus}, a language will want to economize on the number of phonological phrases employed in any given structure.
+
+In the implementation, a candidate incurs one {\nophi} violation for each phonological phrase it has. [OSV] will have one violation; [O][SV] will have two; [O][S][V] will have three.
+
+It should be noted that {\nophi} is solely responsible for weeding out vacuous candidates that I have not included in this analysis. It is {\nophi} that rules out, say [V][SO][][][] as an alternative to [V][SO].
+
+\subsubsection{\cons}
+
+The {\cons} principle represents the desire of the language faculty to map semantic or logical structures onto phonological structure. In simple terms, {\cons} will shun any form that incorporates elements into a phonological phrase which are \emph{not} a constituent together.
+
+In the context of subjects, verbs and objects, this means that two of these constituents are placed in the same phonological phrase, they must be the object and the verb, otherwise {\cons} yields a violation.
+
+So [S][OV] incurs no violation, as the second phonological phrase containing the object and verb are a logical/syntactic constituent. [SO][V] 
+however, does incur a violation, as the subject and object (which are not a logical constituent) are placed in the same phonological phrase without the verb. [VS][O] is similarly aberrant, as the subject and verb do not form a constituent.
+
+To be clear, [VSO] or any other order of elements in one and only one phonological phrase does \emph{not} incur a violation, as the whole phrase is indeed a constituent.
+
+\begin{framed}
+The fact that I have made reference to logical or syntactic constituency may seem like a kind of cheat when compared to 
+\end{framed}
+
+<++>
+
+\section{Implementation and Analysis}
+
+\subsection{Methods}
+
+As mentioned in Section \ref{generation}, the candidate set for transitive clauses consists of 24 viable candidates, that is, for each of the six logical subject, object, verb orders, four different parsings, e.g. for the order SVO: [SVO], [S][VO], [SV][O] and [S][V][O]. The candidate set for intransite clauses is significantly smaller, consisting only of the only four logically-possible parsings of the subject and verb alone: [SV], [S][V], [VS] and [V][S].
+
+For ease of analysis, and in aid of creating a typology, I fed a spreadsheet of all candidates, constraints and the violations each constraint would incur for each candidate into the OT-Help program \parencite{othelp}.\footnote{The source file used for this analysis can be found at \href{http://lukesmith.xyz/ling/word_order.csv}{http://lukesmith.xyz/ling/word\_order.csv}} This software package takes such spreadsheets and returns an interactive report of possible languages resulting from different constraints interacting over different underlying forms.
+
+\subsection{The Typology}
+
+Given the 24 different candidates for transitive clauses and the four candidates for intransitive cluases, we could have 96 distinct languages, however, only ten of those, according to the analysis of OT Help can be produced by an ordering of constraints consistent across both transitive and instransitive clauses.
+
+These ten possible language types are listed below by word order:
+
+\begin{enumerate}
+\item \textbf{An SVO/SV language}, with two subtypes, one where all consitituents are in the same phonological phrase: [SVO]/[SV] and another where the transitive verb phrase is a phonological phrase unto itself [S][VO]/[SV]. The latter seems to closely approximate the English situation.
+
+[SVO]/[SV]: \cons, \nophi, \initphi, \topf, {\troc} {\textgreater} \cont, {\finphi,} {\textgreater} \iamb
+
+[S][VO]/[SV]: \cont, \cons, \topf, {\troc} {\textgreater} \nophi, {\finphi} {\textgreater} \iamb, \initphi
+\item \textbf{An SVO/VS language}, that is, an SVO-type language whose intranstive clauses are verb-initial. This can be related to languages like Spanish. Again, two subtypes: one parsed [SVO]/[VS] and another parsed [S][VO]/[VS].
+
+[SVO]/[VS]: \cons, \nophi, \finphi, {\topf} {\textgreater} \cont, \initphi, {\troc} {\textgreater} \iamb
+
+[S][VO]/[VS]: \cont, \cons, \finphi, {\topf} {\textgreater} \iamb, \nophi, \initphi, \troc
+\item \textbf{An SOV/SV language} with two subtypes, analogous to the SVO/SV language: one with all constituents under one phonological phrase [SOV]/[SV] (Basque-like), and another with the transitive VP as a phonological phrase alone: [S][OV]/[SV] (Persian-like).
+
+[SOV]/[SV]: \iamb, \cons, \nophi, \initphi, \topf, {\troc} {\textgreater} \cont, \finphi
+
+[S][OV]/[SV]: \cont, \iamb, \cons, \initphi, \topf, {\troc} {\textgreater} \nophi, \finphi
+\item \textbf{An SOV/VS language} where the transitive VP is alone: [S][OV]/[VS]. This type is still mysterious to me, as I know of no language which seems to fit it well. There is only this one parse available, however.
+
+[S][OV]/[VS]: \cont, \iamb, \cons, {\topf} {\textgreater} \nophi, {\finphi} {\textgreater} \initphi, \troc
+\item \textbf{A VSO/VS language} of two types: [VS][O]/[VS] and [VSO]/[VS].
+
+[VS][O]/[VS]: \cont, \iamb, \finphi, {\topf} {\textgreater} \cons, \nophi, \initphi, \troc
+
+[VSO]/[VS]: \iamb, \cons, \nophi, \finphi, {\topf} {\textgreater} \cont, \initphi, \troc
+\item Lastly, \textbf{a VOS/VS language} parsed as [VO][S]/[VS].
+
+[VO][S]/[VS]: \cont, \iamb, \cons, {\finphi} {\textgreater} \nophi, \initphi, \topf, \troc
+
+\end{enumerate}
+
+Thus of the six logically possible \emph{linear} word orders (ignoring phonological phrasing), our constraints have yielded only four of them, precisely those four which make up $\approx$99\% of actually existing languages (1173 out of 1188 surveyed according to \textcite{dryer13}). 
+
+\begin{figure}
+\begin{tableau}{c:c:c:c|c:c|c:c}
+\inp{SOV}	\const{\cont}	\const{\cons}	\const{\topf}	\const{\troc}	\const{\nophi}	\const{\finphi}	\const{\iamb}	\const{\initphi}
+\cand[\Optimal]{[S][VO]} \vio{}	\vio{}	\vio{}	\vio{}	\vio{**}	\vio{}	\vio{*}	\vio{*}	
+\cand{[S][OV]}	\vio{}	\vio{}	\vio{}	\vio{}	\vio{**}	\vio{*!}	\vio{}	\vio{}
+\cand{[SVO]}	\vio{*!}	\vio{}	\vio{}	\vio{}	\vio{*}	\vio{}	\vio{*}	\vio{}	
+\cand{[SV][O]}	\vio{}	\vio{*!}	\vio{}	\vio{}	\vio{**}	\vio{*}	\vio{*}	\vio{}
+\cand{[OV][S]}	\vio{}	\vio{}	\vio{*!}	\vio{*}	\vio{**}	\vio{*}	\vio{*}	\vio{}	
+\cand{[SVO]}	\vio{*!}	\vio{}	\vio{}	\vio{}	\vio{*}	\vio{}	\vio{*}	\vio{}
+\cand{[VSO]}	\vio{*!}	\vio{}	\vio{}	\vio{*}	\vio{*}	\vio{}	\vio{}	\vio{*}
+\end{tableau}
+\caption{The constraint ranking and tableau of an English-like SVO language.}
+\end{figure}
+
+<++>
+
+
+\begin{figure}
+\begin{tableau}{c:c:c:c|c:c|c:c}
+\inp{SV}	\const{\cont}	\const{\cons}	\const{\topf}	\const{\troc}	\const{\nophi}	\const{\finphi}	\const{\iamb}	\const{\initphi}
+\cand[\Optimal]{[SV]}	\vio{}	\vio{}	\vio{}	\vio{}	\vio{*}	\vio{*}	\vio{}	\vio{}
+\cand{[S][V]}	\vio{}	\vio{}	\vio{}	\vio{}	\vio{**!}	\vio{*}	\vio{}	\vio{*}	
+\cand{[VS]}	\vio{}	\vio{}	\vio{}	\vio{*!}	\vio{*}	\vio{}	\vio{}	\vio{*}	
+\cand{[V][S]}	\vio{}	\vio{}	\vio{}	\vio{*!}	\vio{**}	\vio{*}	\vio{}	\vio{*}
+\end{tableau}
+\caption{The constraint ranking and tableau of an English-like SVO language.}
+\end{figure}
+
+
+
+\printbibliography
+
+\end{document}

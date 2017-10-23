@@ -1,0 +1,394 @@
+\documentclass{article}
+
+\usepackage[round]{natbib}
+\usepackage{tikz}
+\usepackage[notipa]{ot-tableau}
+\usepackage{easylist}
+\usepackage{hanging}
+\usepackage{hyperref}
+\usepackage{blindtext}
+\usepackage{tipa}
+\usepackage{cgloss4e}
+\usepackage{gb4e}
+\usepackage{qtree}
+\usepackage{enumerate}
+\usepackage{longtable}
+\usepackage{textgreek}
+\usepackage{draftwatermark}
+\SetWatermarkLightness{0.9}
+\SetWatermarkText{DRAFT}
+\SetWatermarkScale{5}
+
+\newcommand{\topf}{\textsc{TopicFirst}}
+\newcommand{\starg}{\textsc{StressArg}}
+\newcommand{\troc}{\textsc{Trochaic{\textphi}}}
+\newcommand{\iamb}{\textsc{Iambic{\textphi}}}
+\newcommand{\nophi}{\textsc{*{\textphi}}}
+\newcommand{\trocI}{\textsc{TrochaicIP}}
+
+\ShadingOn
+
+\tikzstyle{block} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=black, fill=white]
+\tikzstyle{blank} = [rectangle, minimum width=3cm, minimum height=1cm, text centered, draw=white, fill=white]
+\tikzstyle{note} = [rectangle, draw=white, fill=white, minimum height=1cm, minimum width=1cm]
+\tikzstyle{arrow} = [thick,->,>=stealth]
+\tikzstyle{darrow} = [ultra thick,<->,>=stealth]
+\setlength{\parindent}{0cm}
+\setlength{\parskip}{.25cm}
+
+
+\title{Syntax without Syntax}
+\author{Luke Smith}
+
+\newcommand{\Ss}{Strong Start}
+\newcommand{\TT}{that-trace effect}
+\newcommand{\T}{\textit{t}}
+
+\begin{document}
+
+\maketitle
+
+\section{The Basic Issues}
+
+\subsection{Introduction}
+Here I argue that while Minimalism has made important conceptual strides in understanding how the language faculty fits within the biolinguistic context, some leftovers from early formal linguistics make dealing with phonologically-motivated syntactic alternations conceptually difficult or impossible. I argue for an understanding of syntax that, like parallel developments in the field of phonology, is motivated primarily by independently groundable constraints, replacing of the more traditional interpretation of a quasi-linear grammar where a syntax feeds semantic and phonological interfaces. I examine some data problems, difficult or taxing to motivate by traditional assumptions, which I argue to be soluble by assuming a direct and immediate competition of ranked prosodic constraints. These include constituent extraposition, {\TT}s, second-position phenomena and the beginnings of a generalized account of basic word order. I then discuss the interlocking nature of optimized constraints and what they mean for the acquisition of syntax.
+
+
+
+
+\subsection{The evolutionary problem}
+
+The human language faculty is well known to be a kind of evolutionary conundrum. Superficially, language is one of the most complex instruments in the human cognitive repertoire, with a scale of application about as wide as human understanding generally. In formal terms, each instantiation of human language comprises an infinite set of possible utterances, which correspond to an equally infinite and dynamic set of possible semantic interpretations.
+
+But by itself, the complexity of language isn't particularly irregular. Language's true irregularity is the historical instantaneousness of the its development in evolutionary time and the total lack in the animal world of any generative system used for communication equivalent to it.
+
+Unlike other organs, the eye, or the endocrine or auditory system, human language lacks any intermediate forms. While some have endeavored to compare some abilities in the animal world to the syntax of human language, those animals closest to us in descent and history, the other great apes, are curiously unencumbered by any creative and recursive communicative system.
+
+It seems, therefore, that the most complex cognitive apparatus known to us sprung more or less full form without any kind of gradual Darwinian selection. Perhaps for rhetoric's sake, Chomsky himself has been careful not to call the development of language an evolutionary saltation, but this is precisely what we see (albeit perhaps with several small sequential saltations). Within the several millions of years separating man from chimpanzee, we see an immediate unfolding of all linguistic ability.
+
+\subsection{Constraints drive alternations}
+
+That is to say, the language faculty is a simple one, as is evolutionarily necessary, but the simple mechanism of language interacts with external constraints in such a way to produce languages with enormous superficial complexity and difference. This is no testament to the complexity of the language faculty itself, but to the laws of form that constrain it.
+
+For example, each utterance of human language must be ``parseable,'' in that its speakers must be able to determine what word or morpheme is meant to be interpreted as what (subject, object, agent, patient, adjunct, verb, etc.). Each sentence must also be meaningful, in the sense that the parsed meaning must correspond to something semantically well-formed and relevant. Additionally, each utterance must obey the constraints required by externalization. In the case of spoken language, this means that each utterance must flow in accordance with phonological and prosodic principles that underlie how the actual vocal tract is constructed.
+
+All of these constraints are not added details of language, but impinge quite directly on how languages are constructed.
+
+One important, yet often unnoted corollary of this conception of language is that most of the actually-existing field of linguistics, especially syntax, is \emph{not} a study of the language faculty \textit{per se}, or anything else essentially linguistic. Rather, it is a study of how a simple and unremarkable language faculty (a possible candidate being ``Merge'' in the ideas of \citet{hauser02} and \citet{berwick15}) interacts with external factors to yield the actual diversity of human languages. We should be clear that a truly Minimalist account of language is one that exhaustively explains the structure of languages in terms of those non-linguistic constraints that play into it.
+
+The goal of full ``consilience'' (in the terms of \citet{wilson98}) and a unity of scientific fields might be a sisyphean one, but that doesn't make it approaching it less informative. The end of any scientific field is to unify and motivate its principles in external ones, thus leaving the intuitions of the field itself ``explained'' causally---in the sense that they are understood to be inevitable outcomes of what we know of reality outside of the field. Biology is ``complete'' when we totally reworded the principles of biology in terms of interacting chemical properties. Economics is ``complete'' when we can totally reword economic principles in the terms of the psychological and behavioral principles that underpin them. Likewise, linguistics is ``complete'' when we can totally understand the different alternations and constructions of human languages in terms of the physical and cognitive constraints that interplay to produce them.
+
+This level of ``completeness'' is likely unreachable in every single case, but it is, no less, the implicit goal of all scientific inquiry.
+
+
+
+\subsection{Dispensing with Formality}
+
+
+Now, in a way that is sorely unappreciated, there is a fundamental incompatibility between these goals biolinguistic Minimalism and traditional ``formal'' linguistics, despite the former coming from the wellspring of the latter. The aforementioned imperatives of Minimalism, particularly in evolutionary light, impel us to understand an emergent language faculty, whose individual traits are motivated by external factors. Traditional formal linguistics, on the other hand, models the language faculty as a set of formal syntactic operations, totally autonomous and distinct from external factors.
+
+\citet{chomsky53} took it for granted that key to understanding language was to ``to determine and state the structure of natural languages \emph{without semantic reference}'' [emphasis added], and would soon conclude from the syllogism that syntactic well-formedness needn't imply meaningfulness that ``grammar is autonomous and independent of meaning'' \citep{chomsky57}.
+
+
+This all would lead to a formal understanding of human language directly isomorphic to the study of formal languages. The core of ``language'' came to be understood as a set of idiosyncratic formal operations applicable to the elements in a lexicon. As alluded to, these rules (along with what would later be described as ``transformations'') would be irrelevant to semantic interpretation, or any kind of external requirements (prosodic well-formedness, parseability). Instead they were understood as \textit{syntax-qua-syntax}, the set of formally autonomous operations that comprised Universal Grammar.
+
+This quickly led to what has generally been termed the \textit{Y-Model} of grammar (Figure \ref{min}). In this model, the formal rules of syntax generated the set of valid utterances for each language, which in turn were sent off to both the phonological and semantic interfaces for interpretation.
+
+\begin{figure}
+\centering
+\begin{tikzpicture}[node distance=2cm]
+\node (syn) [blank] {Syntax/Merge};
+\node (lex) [blank, above of=syn] {Lexicon};
+\node (phon) [blank, below left of=syn, xshift=-1cm, text width=3cm] {Sensory-motor System};
+\node (sem) [blank, below right of=syn, xshift=1cm, text width=3cm] {Conceptual-intentional System};
+\draw [arrow] (syn) -- (sem);
+\draw [arrow] (syn) -- (phon);
+\draw [arrow] (lex) -- (syn);
+\end{tikzpicture}
+\caption{The Modern Y-Model of Grammar\label{min}}
+\end{figure}
+
+
+Because of the linearity of this model of language, Minimalism has to do some peculiar things to get the right answers. Merge must generate strings which are interpretable by both the sensory-motor system (sound) and the conceptual-intentional system (meaning). But since both are \emph{downstream} from Merge itself, it should not be able to foretell exactly \emph{what} it needs to do to satisfy the constraints of both of those interfaces.
+
+And this is where the real conceptual and empirical problem begins. Firstly, many alternations seem to move lock-step with ``downstream'' requirements of the phonological system. \citet{richards10}, for example shows a compelling account of the typological differences in \textit{wh-} movement totally rooted in already establish prosodic constraints. He shows the syntactic ``parameter'' of \textit{wh-} movement is derivable from two prosodic facts: whether the language has its C to to the right or left of a clause, and whether its syntactic phrases try to match their right or left edges with prosodic phrases.
+
+He argues that all languages, \textit{wh-} moving and \textit{in situ} attempt to minimize prosodic the number of prosodic breaks in between a \textit{wh-} word and the C where it takes scope. Languages like Japanese, which have leftward Cs, yet project to prosodic boundaries on the right can easily compress all prosodic phrases into one single one (illustrated by pitch compression in \textit{wh-} phrases), thus making physically moving the \textit{wh-} word unnecessary.
+
+However English, which has also a leftward C, but tries to map prosodic boundaries on the \textit{left} edge cannot use some kind of prosodic compression to unify the C and \textit{wh-} word, as the \textit{wh-} phrase wants to project a boundary intervening between it and the C. This compels English-like languages to move \textit{wh-} words towards the C.
+
+Richards' account works elegantly for the many languages he investigates in depth, but he rightly notices that this so elegant analysis is run aground by the theoretical assumption that we've mentioned here. When the syntax \emph{precedes} the phonology, there's no clear way how it should be able to \emph{happen} to produce strings that the phonology is going to end up accepting. He notes that we would have to have a kind of long-distance ``look-ahead'' ability so the syntax can effectively cheat by looking forward to the phonology, and at that point, the point
+
+My suggestion here is that this assumption has to be discarded, and in fact if it is, w
+
+\section{Opening the floodgates}
+
+\subsection{A forestry problem}
+
+
+The most elementary problem of the externalization is that the properties and constituency of semantic structure do not perfectly overlap with the requirements for prosody. While it's well established that languages have an overwhelming desire to map these semantic constituents to prosodic ones (see \citet{selkirk84} and the ensuing literature), yet there still remains a fundamental disconnect between the two that makes a perfect 1-to-1 match impossible.
+
+Specifically, we have gradually come to understand that the structure of syntacto-semantics is largely binary and capable of indefinite recursion: there is an hierarchically invariant base of different meaningful morphemes, adverbs \citep{cinque99}, verbal arguments (see \citet{baker88} and ensuing literature) and one of the fundamental points of the recursion of human language is that these structures may be recursive and infinitely deep.
+
+\begin{figure}
+\Tree [ Mary [ said [ that [ Billy [ wanted [ for [ Sally [ to [ deny {\ldots} ] ] ] ] ] ] ] ] ]
+\caption{Binary structure\label{ss}}
+\end{figure}
+
+This gives us a syntactic structure like Figure \ref{ss}, which is at variance with a more optimal prosodic structure in Figure \ref{ps}. Prosodic structure is not narrow and deep, but bushy and wide. Each \textit{Utterance} is composed of \textit{Intonational Phrases}, which are composed of \textit{Prosodic Phrases} and so on, but recursion to produce the infinite depth in semantic structure is not possible.
+
+\begin{figure}
+\Tree [.U [.IP [.{\textphi} Mary said that ] ] [.IP [.{\textphi} Billy wanted for ] ] [.IP [.{\textphi} Sally to deny{\ldots} ] ]  ]
+\caption{Prosodic structure\label{ps}}
+\end{figure}
+
+Thus each language is tied between these two structures, and in each case, a language must choose how to optimize the constraints of the underlying binary semantic base with the bushy demands of the phonology.
+
+\citet{carnie05} note actually precisely the same phenomenon, albeit do not name prosodic constraints as the main causer. They realize that leftward movement in language, particularly the EPP serve to ``maximize'' syntactic trees or to make them what \citet{medeiros12} later also calls ``bushy.'' Medeiros reckons that these movements optimize a structure in that they minimize the C-command relationships, an interpretation he has more recently rejected (personal communication).
+
+Still, the empirical facts hold, and should make more sense in the context of prosodic optimization. Syntactic movement, particularly of a heavy constituent, yields a more bushy, and thus more prosodically accessible sentence.
+
+Thus, if we accept that the mismatch between the prosody and the semantics of language to be the essential issue of the externalization, we should expect to see that without any arbitrariness, languages should break a sensible ``logical'' constituency to gain significantly in prosodic constituency.
+
+Instead of conceptualizing the alternations of languages to be a kind of formal happenstance, we can move to a more Minimalist understanding of actually-existing languages in which these alternations are totally driven by only those constraints conceptually necessary for language externalization. Movement or word placement become issues not of following arbitrary syntactic parameters, but of optimizing language given prosodic or semantic constraints.
+
+\subsubsection{Extraposition}
+
+This no less applies to rightward movement in language. Conventional assumptions of syntax have rendered rightward extraposition a particularly difficult problem to deal with. But the problem evaporates if we understand movement as a kind of optimization scheme for the phonological interface.
+
+Take the common example of CP complement extraposition. It's generally well known that while many languages have SOV order, a significant subset of those languages will show SVO order when objects are particularly heavy, especially when they are CPs. We see this in German, as below.
+
+\begin{exe}
+\ex\begin{xlist}
+\ex[]{\gll Ich will \textbf{es} wissen.\\
+I want it {to know}\\
+\trans{``I want to know it.''\label{germnorm}}}
+\ex[]{\gll Ich will wissen \textbf{was} \textbf{Liebe} \textbf{ist.}\\
+I want {to know} what love is\\
+\trans{``I want to know what love is.''\label{liebe}}}
+\ex[*]{{\gll Ich will \textbf{was} \textbf{Liebe} \textbf{ist} wissen. \\
+I want what love is {to know} \\\label{badgerm}}}
+\end{xlist}
+\end{exe}
+
+(\ref{germnorm}) shows the normal SOV order of German. Replacing the pronounc \textit{es} with a full CP, \textit{was Liebe ist} without any change in word order is not acceptable, as shown in (\ref{badgerm}). These sentences are only utterable if the CP is totally extraposed to the end of the clause, as in (\ref{liebe}).
+
+Let's be clear about what is prosodically suboptimal about (\ref{badgerm}). Particular syntactic constituents will want a mapping to particular prosodic constituents (see work in Match Theory \citep{selkirk11}), in this case, CPs will want to be matched with Intonational Phrases. This is no problem for (\ref{germnorm}), as the whole phrase falls under one and only one CP.
+
+But in (\ref{badgerm}), where we have an interior CP, it is not clearly possible how to make the subordinated CP to a new IP while totally \emph{inside} the matrix IP. We could awkwardly map \emph{Ich will} to one, the subordinated CP to another, and \emph{wissen} as one word to yet another, yielding three happy IPs under an Utterance, but that would require splitting the constituents of the clause, and leaving the verb head to its own IP. There is no clear solution for dealing with (\ref{badgerm})
+
+\begin{figure}
+\Tree [.*U  [.IP [.{\textphi} [.{\textomega}\\Ich ] [.{\textomega}\\will ]  ]  [.*(IP)\\{was Liebe ist} ] [.{?\textphi} [.{\textomega}\\wissen ] ] ] ]
+\caption{The need for CP extraposition\label{need}}
+\end{figure}
+
+German solves this mismatch by the extraposition in (\ref{germnorm}). The subordinated CP can easily be matched to an IP if it is displaced rightward, as shown structurally in Figure \ref{badgerman}. While this sentence violates the canonical German word order, it avoids a violation of the presumedly more important constraint on unmatched CPs. Another way of saying this is that the output tree is more bushy, and thus generally more compatible with phonological constraints.
+
+\begin{figure}
+\Tree [.U  [.IP [.{\textphi} [.{\textomega}\\Ich ]  [.{\textomega}\\will ] [.{\textomega}\\wissen  ] ]    ] [.IP [.{\textphi} [.{\textomega}\\was ] [.{\textomega}\\Liebe ] [.{\textomega}\\ist ] ] ] ]
+\caption{CP extraposition in German\label{badgerman}}
+\end{figure}
+
+Note that while this is a common alternation among SOV languages, the reverse does not exist. While many SOV languages will extrapose CP complements for a more optimal SVO structure, no SVO languages will choose to put heavy complements \emph{before} the verb, yielding SOV order. This typological fact falls out from this kind of movement simply being a prosodic optimization.
+
+We should also be clear that this kind of prosodically-motivated rightward movement is fairly common in languages, and not only in the context of matching CPs to IPs, but also other syntactic constituents. English shows a very robust extraposition pattern in DPs modified by adjectives, like below.
+
+\begin{exe}
+\ex \begin{xlist}
+\ex the excited man\label{ex}
+\ex[*]{the excited for the party man}\label{exbad}
+\ex the man excited for the party\label{exfor}
+\end{xlist}
+\end{exe}
+
+English adjectives usually come before the nouns the modify, as shown in (\ref{ex}), yet when an adjective is modified by a complement preposition, the canonical word order becomes impossible as in (\ref{exbad}). This badness is easily resolved by extraposing the heavy adjective and complement to the end of the noun phrase, as shown in (\ref{exfor}). We can think of the heavier AP as needing to project to a phrase higher in the prosodic hierarchy and moves for the same reason that German CPs must.
+
+Thus in the case of both leftward and rightward movement, we can see that seemingly unmotivated displacement falls out from the very grafting problem in matching prosodic and semantic structure. This is so fortunate theoretically because it only reflects precisely what we should expect from a interface-maximizing language faculty, without any assumptions.
+
+That said, the constraints of the phonological system aren't simply limited to constituency, but phonological systems have strong preferences for phrasal stress. As we'll see in the next section, this fact impinges quite directly on the syntax, in a way that can further elucidate some classically trying problems of syntax.
+
+\subsection{Stress constraints on syntax}
+
+\marginpar{Somewhat messy section. will be rewriting.}
+
+Now onto the domain of phrasal stress and its resolutionary power in syntax. \citet{selkirk11} notes the following constraint in an analysis of English word stress.
+
+\begin{exe}
+\ex \textbf{Strong Start} \citep{selkirk11}\\A prosodic constituent optimally begins with a leftmost daughter constituent which is not lower in the prosodic hierarchy than the constituent that immediately follow:\\\\{*}(\textpi$_n$ \textpi$_{n+1}$\ldots
+\end{exe}
+
+We can generalize this constraint to the domain of phrasal stress and earn some currency in syntactic problems. Note that many languages show ``syntactic'' constraints sensitive to what is traditionally called Wackernagelian or second-position phenomena. That is, many languages forbid stressless clitics from congregating at the begining of the sentential intonational phrase, instead prosodically inverting clitics to the second position, thus behind some non-clitic element.
+
+In the same vein, \citet{fitzgerald94} provides a similar account of the phonologico-syntactic constraints of Tohono O'odham, a language which, despite extremely free word order,
+
+
+Note that \Ss\ is not merely a statement of syllabic stress (i.e. that a word should prefer initial to second-syllable stress), but it implicitly covers every layer of phonological structure. That is to say, for each Utterance, the leftmost IP should be more prominent than the following IP, for each IP, the leftmost \textphi\ should be more prominent than the second, for each \textphi, the leftmost \textomega\ should be most prominent, etc., etc.
+
+\begin{exe}
+\ex \textbf{Intonational Phrase Edge Generalization (IPEG)} \citep{an07}\\The edge of an I-phrase cannot be empty (where the notion of edge encompasses the specifier and the head of the relevant syntactic constituent).
+\end{exe}
+
+An's analysis imputes empty categories as being inputs into the phonological system.
+
+\subsubsection{That-trace effects}
+
+We can unify a somewhat stipulated aspect of English grammar,  \TT{s} in the same stress-related account we've presented here. The classical dichotomy of {\TT} is presented below. English permits extraction of an initial subordinated subject where there is no overt complementizer, as in (\ref{goodblack}), but the existence of a complementizer, as in (\ref{badblack}), produces ungrammaticality.
+
+\begin{exe}
+\ex \begin{xlist}
+\ex[]{Who do you think gave Billy his black eye?\label{goodblack}}
+\ex[*]{Who do you think that \T\ gave Billy his black eye?\label{badblack}}
+\end{xlist}
+\end{exe}
+
+Traditionally, there was simply a stipulated that-trace ``filter'' that weeded sentences like (\ref{badblack}) out, as an extra theoretical pustule on Universal Grammar. A mounting testament of evidence, however, points to the fact that \TT{s} needn't be modeled as a syntactic stipulation, but are phonologically conditioned. Firstly, as \citet{merchant01} has noted, ellipsis of the phonological form of a \TT\ avoids the violation. Thus (\ref{elide}) remains grammatical, despite the fact that the syntax of the elided phrase would have to violate the \TT\ filter.
+
+\begin{exe}
+\ex John said that someone would write a new textbook, but I can't remember who (*John said that \T\ would write a new textbook)\label{elide}.
+\end{exe}
+
+Thus it seems not to be the extraction itself, but something about the phonological realization of the subordinated clause which is amiss. At that, that-trace effects are also alleviated by the scrambling of adverbial phrases topicalized in clauses which would otherwise yield violations.
+
+\begin{exe}
+\ex \begin{xlist}
+\ex Who do you think that after all these months \T\ would still want to go on the trip?
+\ex Who did they say that for his whole life \T\ wanted a new puppy?
+\end{xlist}
+\end{exe}
+
+Importantly \citet{salzmann11} realize explicitly that \TT{s} are not merely abstract collocations of \emph{that} and a trace, but on the phonological level, are a linear collocation of \emph{that} and a finite verb. The flexibility of German scrambling can collocate a variety of elements with \emph{dass}, but only the main verb produces the stark unacceptability.
+
+The importance of all of this for our purposes is that the phonological constraints can interact with functional tendencies in language in a systematic way. Crucially, \citet{gundel88} recognizes that languages tend to align prosodic and sentential stress to topicalized and focused entities, which occur in cross-linguistically similar locales; these elements are routinely nouns or topical PPs. At that, \citet{bolinger54} makes a similar descriptive statement of Spanish, where the surface realization of nominals is often a function of the wider prosodic structure of a sentences; that is, a focused noun will tend to fall where the natural stress of an utterance would otherwise be. In formal literature as well \citep{rizzi97} (and intuitively), it should be noted that the elements which are focused or topicalized in language are routinely nominals, not verb heads.
+
+Drawing this all together, we can say that \TT{s} actually fall out merely from \Ss. Assuming that \textit{that} produces a new intonational phrase boundary after it, the following element which begins the IP must be prosodically more prominent than its successor. However main verbs usually have \emph{no} focus or topic quality, they cannot serve this purpose, and thus cannot begin intonational phrases.
+
+Thus a language with a high ranking on a \Ss-like constraint will rule out verb-initial clauses in the same way that languages with productive second-position phenomena (like Tohono O'odham mentioned above) will rule out clitic-initial clauses. Here I will be assuming that \Ss\ is a highly ranked constraint for English IPs (while in the canonically VSO languages like Irish, it is ranked lower). 
+
+As one should expect, in positions where verb heads happen \emph{to} serve as objects of contrastive focus, \TT{s} are somewhat alleviated as in (\ref{alev}) \citep{kandybowicz06}.
+
+\begin{exe}
+\ex[\%]{Who did you say that WROTE Barriers today?}\label{alev}
+\end{exe}
+
+
+English CPs prefaced by \emph{that} must project to full IPs, thus potentially paving the way for the violations of \Ss. On the other hand, English CPs without \emph{that} are enunciated as a single IP phrase, thus the lack of a preverbal element is not prosodically dispreferred.
+
+Interestingly, if a \TT-violating phrase (like \ref{badblack})) is read quickly enough as one IP, the violation is alleviated or annulled. A similar fact is noted by \citet{kandybowicz06}, saying that \TT-violating sequences become acceptable or improved when either the C or following verb is prosodically collapsed onto one another.
+
+
+
+\begin{exe}
+\ex\label{thatll}\begin{xlist}
+\ex[]{Who do you hope *for/\%fer to win?}
+\ex[\%]{Who do you suppose that'll leave early?}
+\ex[\%]{The author that the editor predicted that'd be adored\ldots}\end{xlist}
+\end{exe}
+
+In examples like (\ref{thatll}), we can say that the cliticization nudges the reader to read the sentences as a single, uninterrupted IP, thus avoiding violations of \Ss. These can be compared to the above example of forcing strings like `the kind to children man' into acceptable English prosody (such that we have `kind-to-children' realized as one prosodic word).
+
+Additionally, in the same way that complement CPs with \textit{that} project to IPs and CPs without do not, we can see that \emph{restrictive} relative clauses like (\ref{rest}) do not produce \TT{s} while their near cousins, \emph{non-restrictive} relative clauses, which do have distinct intonational boundaries (comma intonation) do (\ref{nonrest}).
+
+\begin{exe}
+\ex\begin{xlist}
+\ex[]{the fisherman that \T\ liked to play dice\label{rest}}
+\ex[*]{the fisherman, that \T\ liked to play dice\label{nonrest}}
+\end{xlist}
+%\ex\begin{xlist}
+%\ex[]{the fisherman that Billy hired \T}
+%\ex[]{the fisherman, that Billy hired \T}
+%\end{xlist}
+\end{exe}
+
+The required IP boundary in a phrase with a non-restrictive relative clause puts the syntactic clause up to \Ss\ on IPs. Again, where there is no IP boundary, like in (\ref{rest}) or in a complement CP without \emph{that}, \Ss\ does not apply.
+
+<write a transition>
+
+\subsection{Word Order\label{worder}}
+
+Word order parameters were one of the traditional examples of \textit{syntax-qua-syntax}, a good example of the syntax of a language totally independent of any other fact. Still, this certainly shouldn't preclude any attempt to derive basic word order from prosodic facts, as we've argued in other cases above.
+
+Importantly, the traditional understanding of word order as an independent parameter doesn't adequately give us an accurate typology of actually-existing languages. The canonical word orders and the prosodic rules of human languages are arranged in a very particular way; all languages tend to have a prosodic structure in which places phrasal and intonational stress on the arguments of the verb, particularly an object or focal object in a clause \citep{gundel88}.
+
+Early generative attempts at typologizing phrasal stress, particularly the seminal \citet{halle87}, treated phrasal stress as being ``assigned'' to words in a syntactic constituent based on parameters of a language, building gradually upwards to larger constituents.
+
+\citet{kahnemuyipour05} notices, however, that accounts like this over-generate the set of observable human languages. While \citep{halle87}'s theory is consistent with any word order with any stress pattern, Kahnemuyipour notes that observed human languages only take advantage of a subset of combinations of word orders and stress patterns, specifically, those that serve to produce languages in keeping with the generalization above: sentential stress should fall on the object and all arguments should be stressed over the verb.
+
+The theoretical problem here is no different than in the previous interface problems. If we take syntactic facts as ``given,'' and attempt to apply independent prosodic rules, we over- or under-predict the variation in language. On the other hand, if we take the syntactic facts as \emph{secondary} to language, we can move not only to motivating them in a non-arbitrary fashion, but we avoid the theoretical diseconomy of another set of ``parameters'' for a ``syntactic'' domain.
+
+\subsubsection{Justification of Constraints}
+
+We can begin to motivate the word order of different languages with only a small set of already well-established and independently motivated constraints.
+
+\marginpar{I have some ideas to redo this, particularly by getting the sub/obj ordering not from {\topf}, but by the object having to take sentential stress. More later.}
+
+\begin{itemize}
+\item \textbf{\topf} -- A discourse topic, given information should precede new information, or focus.
+\item \textbf{\starg} -- Any verbal argument that fails to take phrasal stress will incur a violation. This can be related the stress-to-prominence principle of \citet{gutierrez03}.
+\item \textbf{\troc} -- A phonological phrase ({\textphi}) must be trochaic.
+\item \textbf{\iamb} -- A phonological phrase ({\textphi}) must be iambic.
+\item \textbf{\nophi} -- Economize on phonological phrases ({\textphi}). Each phonological phrase incurs a violation.
+\end{itemize}
+
+\subsubsection{Implementing the Word Order Paradigm}
+
+We can start implementing these constraints to see how they can give us basic word order differences, such as that between head final and initial VPs. As an example, take the SOV Persian and SVO English. This difference in word order comes with the independent fact of phrasal stress. While English tends to prefer iambic phonological phrases, Persian prefers trochees \citep{kahnemuyipour03}.
+
+If we realize these facts in a constraint tableau for both Persian and English (Figures \ref{perwo} and \ref{engwo}).
+
+{\topf} prevents an object-initial clause in both languages. Stress arguement prevents the verb from receiving the phonological phrase stress when an argument is in the same phrase. {\nophi} prevents the overgeneration of phonological phrases.
+
+\begin{figure}
+\begin{tableau}{c:c:c|c}
+\inp{}	\const{\topf}	\const{\starg}	\const{\troc}	\const{\nophi}
+\cand{[ \'{S} ] [ \'O V ]}	\vio{}		\vio{}		\vio{}		\vio{**}	
+\cand{[ \'S ] [ \'V O ]}	\vio{}		\vio{*!}	\vio{}		\vio{**}
+\cand{[ \'S O V]}		\vio{}		\vio{*!}	\vio{}		\vio{*}
+\cand{[ \'O ] [\'S V ]}		\vio{*!}	\vio{}		\vio{}		\vio{**}
+\cand{[ \'S ] [ V \'O ]}	\vio{}		\vio{}		\vio{*!}	\vio{**}
+\cand{[ \'S ] [ \'O ] [ \'V ]}	\vio{}		\vio{}		\vio{}		\vio{**!*}	
+\end{tableau}
+\caption{Persian word order driven by constraints.\label{perwo}}
+\end{figure}
+
+\begin{figure}
+There is going to be an equivalent tableau for English here. It will be pretty similar to the Persian, except will have a {\iamb} constraint ranked over {\troc}.
+\caption{English word order driven by constraints.\label{engwo}}
+\end{figure}
+
+
+<I may also add Basque here later. In Basque, {\nophi} is more highly ranked than {\starg}, thus keeping all elements in one \textphi, except for the verb. I'm still working on the details.>
+
+<<<Insert transition here.>>>
+
+\section{Thinking about the Theory}
+
+
+\subsection{Economy}
+
+It's important to be clear about the interlocking nature of constraints in language. As we've said, in our account, what a particular language does for any particular alternations derivable from the interaction of all other ``parameters.'' English's \textit{wh- moving} status falls out from its independent prosodic and ordering constraints; it is \emph{not} an independent parameter in the traditional way of understanding the term. Put another way, if languages do optimize constraints in such a way, a hypothetical language $English\prime$ which is identical to English except it is \textit{wh- in situ} is \emph{not} a possible human grammar, as is a hypothetical $English\prime\prime$ which is identical to English save it is SOV.
+
+In formal terms, each human language is a \textit{Pareto Optimal} ordering of constraints, that is an ordering of constraints whose goodness (in terms of prosodic well-formedness and other interface factors) cannot be improved by changing any one of them. If we visualize constraint-scape visually, we can think of each language as a \emph{local maximum}, where well-formedness on either semantic or prosodic grounds only decreases if we deviate marginally from the peak.
+
+One huge formal (and as we will see, acquisitional) gain is the fact that the set of viable human grammars is drastically constrained by this approach. In a more traditional \textit{Principles and Parameters} theory, the number of possible languages was $2^n$ where $n$ is the number of binary parameter switches in all of the world's languages. But for us, the set of possible human languages is a much smaller subset of that $2^n$; it is a set only including those set of parameters which are local maxima in terms of optimizing external constraints (prosody/semantics).
+
+%\begin{quote}
+%``Theoretically there may be---in fact, at most times there must be---over- or under-production, over- or under-consumption, over- or under-spending, over- or under-saving, over- or under-investment, and over or under everything else. It is absurd to assume that, for any long period of time, the variables in the economic organization, or any part of them, will `stay put,' in perfect equilibrium, as to assume that the Atlantic Ocean can ever be without a wave.'' \citep{fisher33}
+%\end{quote}(<>)
+
+\subsection{Acquisition}
+
+[This section is unwritten, I have a couple drafts of drafts. I intend on talking about how treating syntactic alternations as being prosodically based earns a lot in the acquisition program. If children can converge on a grammar from multiple angles, so to speak (given what I said about each language being Pareto Optimal in some sense), then only a little amount of data is required for language acquisition. Additionally, I want to talk about psycholinguistic evidence, particularlly developmental evidence which nudges us toward thinking that the acquisition of prosodic and syntactic structure are concomittant and that prosodic is necessary for syntactic interpretation. I have some sources, would appreciate more if you have something possibly relevant.]
+
+\marginpar{Mike suggestion: remove?}
+
+
+
+\section{Conclusion}
+
+Still to be written.
+
+
+\bibliographystyle{apalike}
+\bibliography{$HOME/Documents/latex/uni.bib}
+
+\end{document}

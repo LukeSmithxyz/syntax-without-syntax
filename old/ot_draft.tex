@@ -1,0 +1,154 @@
+\documentclass{article}
+
+%\usepackage[round]{natbib}
+\usepackage[notipa]{ot-tableau}
+\usepackage[backend=biber, style=authoryear-icomp]{biblatex}
+\usepackage{easylist}
+\usepackage{hanging}
+\usepackage{hyperref}
+\usepackage{blindtext}
+\usepackage{tipa}
+\usepackage{cgloss4e}
+\usepackage{gb4e}
+\usepackage{qtree}
+\usepackage{enumerate}
+\usepackage{longtable}
+\usepackage{setspace}
+\usepackage{textgreek}
+\addbibresource{$HOME/Documents/LaTeX/uni.bib}
+\newcommand{\topf}{\textsc{TopicFirst}}
+\newcommand{\starg}{\textsc{StressArg}}
+\newcommand{\troc}{\textsc{Initial{\textphi}}}
+\newcommand{\iamb}{\textsc{Final{\textphi}}}
+\newcommand{\nophi}{\textsc{*{\textphi}}}
+\newcommand{\trocI}{\textsc{TrochaicIP}}
+
+\ShadingOn
+
+\onehalfspacing
+
+\title{Word order is all phonology}
+\author{Luke Smith}
+
+
+\begin{document}
+
+\maketitle
+
+\section*{Changes since draft}
+
+Elaboration of constraints---more specific typology---minor spelling corrections---some added discussion
+
+\section{Intro}
+
+Notice some elementary facts about the typology of word orders. At a sentential level, if a language stresses a constituent in a transitive sentence with normal pragmatics, it is the object which takes sentential stress \parencite{gundel88}; languages which stress subjects or verbs in canonical sentences are conspicuously absent \parencite{kahnemuyipour05}.
+
+Superficially, this might lead one to hypothesize that the phonology is senstive to syntax; that is, fate impells the phonology to stress the object, and enables it to discern the right category to do so. But what's non-trivial about this is that while the phonology has the goal in mind, it never needs to violate the other prosodic rules of the language to imbue objects with sentential stress.
+
+Take the two sentences below, English and Persian, both characteristic of SVO and SOV languages respectively. The VPs have been annotated in brackets.
+
+\begin{exe}
+\ex 
+\begin{xlist}
+\ex Billy [bought \emph{a book}].
+\ex {\gll Ali [\emph{ye ket\=ab} xarid]. \\
+Ali {a book} bought \\
+\trans{``Ali bought a book.''}}
+\end{xlist}
+\end{exe}
+
+Stress on the object is acheived in both cases, but neither without stipulation. English independently assigns final stress to phonological phrases (such as the VP above), while Persian shows initial stress in the same \parencite{kahnemuyipour03,kahnemuyipour05}.
+
+This might seem like a coincidence; English and Persian may be \emph{lucky} to get the desired stress pattern, but as stated before, this \emph{luck} is universal. All languages acheive an object-oriented stress pattern without (so far as I know), out-of-place violations normal stress rules. While this might at first seem to be a coincidence, the biggest coincidences cannot be true coincidences.
+
+\section{Prosodic parameters}
+
+This is only a problem (or a coincidence) in traditional models of grammar where a module called ``syntax'' is prior to another called ``phonology.'' In such a model, the ``syntax'' produces a linear string, to which stress is assigned according to metric rules by the phonology. This logically allows for the possibility of the metric rules applying sentential stress to the subject or verb in transitive sentences, again, unattested in typical sentences.
+
+But what if these metric rules and constraints were prior to the linearization altogether? Instead of us having to keep our fingers crossed for a language with a harmonic pair of metrical constraints and linearization conventions, what if the metrical constraints motivate linearization at the earliest level?
+
+That's to say, in keeping with minimalist principles, ``````Merge'''''' or whatever creates some kind of unordered heirarchical structure. It's not the narrow syntax which shoehorns this structure into a serial string, but only once the derivation reaches the phonological system (or sensory-motor system, if you please) that it must be ordered, and it is ordered by the constraints inherent to that phonological system.
+
+\section{Instantiation}
+
+Let's exemplify this. Let's suppose our phonology is constraint based, and we will model it in Optimality Theory. ``Syntax'' feeds the phonology unordered structure and \textsc{Gen} will produce all possible orders of the words with all possible phonological phrase configurations and stress patterns.
+
+First, let's ennumerate and explain some potentially important constraints.
+
+\begin{itemize}
+\item \topf -- Incur a violation when focal/new information (the object) is pronounced before topical/given information (the subject).\footnote{For now, this constraint could be thought of as being pragmatically-driven: a speaker prefers that new information fall on top of the listener's most recent memory.}
+\item \starg -- Incur a violation for any noun without a type of phonological phrase stress. This can be related to stress-to-prominence constraints as in similar syntactic accounts \parencite{gutierrez03}. This constraint is partially empirically driven (by the mere fact that arguments take stress over their verbs), but can also be thought as being either pragmatically or perhaps even syntactically-driven. Since NPs are both syntactically islands and unlike verb heads, full phrases, this might encourage a higher stress prominence.
+\item \troc -- Incur a violation when a phonological phrase does not have stress on its first constituent. This is similar to trochaic stress rules in other words \parencite{fitzgerald94}.
+\item \iamb -- Incur a violation when a phonological phrase does not have stress on its last constituent. This is merely the ``reverse'' of {\troc}. The two are not necessarily contradictory, for example, if each phonological phrase contains one and only one constituent (which is stressed), then they both are satisfied.
+\item \nophi -- Incur a violation for every phonological phrase. This is an economy constraint, presumably motivated by the phonological system no wanting to waste energy modulating voice for phonological phrases all over the place.
+\end{itemize}
+
+Now let's say that this constraint-based phonological system is fed an unordered set of a subject (S), object (O) and verb (V). We can parameterize the difference between English and Persian in terms of the ranking of {\troc} and {\iamb}. While both languages rank {\topf} and {\starg} highly, English prefers final stress in phonological phrases (highly ranked {\iamb}, while Persian as \textcite{kahnemuyipour03} notes shows complete initial phonological phrase stress, represented by a higher ranked {\troc} constraint.
+
+As Figure \ref{perwo} shows, a {\troc} with a higher rank removes the possiblity of SVO order. We have OV order because {\starg} and {\troc} conspire for stressed elements to be VP initial, and for verbal arguments to be stressed. The presence of {\nophi} prohibits the easy way out of simply giving every argument its own phonological phrase, thus avoiding all violations of {\troc} and {\iamb}.
+
+The English data in \ref{engwo} is similar but with the {\iamb} and {\troc} constraints mirrored. English conspires to stress phonological phrases finally with a higher ranked {\iamb} constraint, and like Persian, {\starg} encourages the object to be in that stressed location.
+
+
+\begin{figure}
+\begin{tableau}{c:c:c|c:c}
+\inp{[V,S,O]}	\const{\topf}	\const{\starg}	\const{\troc}	\const{\nophi} \const{\iamb}
+\cand[\Optimal]{[ \'{S} ] [ \'O V ]}	\vio{}		\vio{}		\vio{}		\vio{**}	\vio{*}
+\cand{[ \'S ] [ \'V O ]}	\vio{}		\vio{*!}	\vio{}		\vio{**}	\vio{*}
+\cand{[ \'S O V]}		\vio{}		\vio{*!}	\vio{}		\vio{*}	\vio{*}
+\cand{[ \'O ] [\'S V ]}		\vio{*!}	\vio{}		\vio{}		\vio{**}	\vio{*}
+\cand{[ \'S ] [ V \'O ]}	\vio{}		\vio{}		\vio{*!}	\vio{**}	\vio{}
+\cand{[ \'S ] [ \'O ] [ \'V ]}	\vio{}		\vio{}		\vio{}		\vio{***!}		\vio{}
+\end{tableau}
+\caption{Persian word order driven by constraints\label{perwo}}
+\end{figure}
+
+\begin{figure}
+\begin{tableau}{c:c:c|c:c}
+\inp{[V,S,O]}	\const{\topf}	\const{\starg}	\const{\iamb}	\const{\nophi} \const{\troc}
+\cand[\Optimal]{[ \'S ] [ V \'O ]}	\vio{}	\vio{}	\vio{}	\vio{**}	\vio{*}
+\cand{[ \'S ] [ \'O V ]}	\vio{}\vio{}\vio{*!}\vio{**}\vio{}
+\cand{[ \'S ] [ O \'V ]}	\vio{}\vio{*!}\vio{}\vio{**}\vio{*}
+\cand{[ \'O ] [ \'S V ]}	\vio{*!}	\vio{}	\vio{*}	\vio{}\vio{}
+\cand{[ \'S V O ] }	\vio{}\vio{*!}\vio{*}\vio{*}\vio{}
+\cand{[ \'S ] [ \'O ] [ \'V ]}	\vio{}\vio{}\vio{}\vio{***!}\vio{}
+\end{tableau}
+\caption{English word order driven by constraints\label{engwo}}
+\end{figure}
+
+\section{A Typology of Word Orders}
+
+ Many theories of stress which attempt to separate syntax and prosody into different modules  will often over-produce non-existent grammars, for example, as \textcite{kahnemuyipour05} notes of even \textcite{halle87}, there's no principled reason that languages where verbs take sentential stress should not exist.
+
+Still this general theory of prosodically-motivated word order can be modified to produce different grammars, and I think they correspond to the actually existing typological categories of language.
+
+Reordering these constraints will made predictions about the types of grammars we can have. I'll note some of the language types that are produced here.
+
+\begin{itemize}
+\item {\starg} and {\troc} {\textgreater} {\nophi} and {\iamb}---A canonical SOV language. Persian.
+\item {\starg} and {\iamb} {\textgreater} {\nophi} and {\troc}---A canonical SVO language. English.
+\item {\nophi} {\textgreater} {\troc} and {\iamb}---A language where verbal constituents are smushed into one prosodic phrase. Basque.
+\item {\troc} and {\iamb} {\textgreater} {\nophi}---A language which can freely satisfy {\troc} and {\iamb} both by adding as many phonological phrases as possible. All nouns would be their own phonological phrases. This would also be a language with relatively free word order, since S and O will receive stress regardless.
+\item  {\nophi}/{\troc}/{\iamb} {\textgreater} {\topf}---Languages permissive of object initiality. The {\topf} constraint generally gives us the empirical fact that subject-before-object languages are highly preferred (\textcite{dryer13} notes that only about 3\% of languages generally put objects before subjects.) The few languages of this type correspond to the fact that {\topf} would have to be extremely lowly.
+\item {\nophi}/{\troc}/{\iamb} {\textgreater} {\starg}---When {\starg} is lower than the phonological phrasing constraints, this would yield a free word order or non-configurational language where stress neededn't fall on every argument. This would be a language similar to Basque, where there is one mushed phonological phrase, but with freer word order (although we would still expect arguments to be either phrase-initial or final depending on the comparative rankings of {\troc} and {\iamb}).
+\end{itemize}
+
+%\section{Theoretical gains}
+
+%In addition to what I view as a typological improvement, this approach, as alluded to before, gives us some considerable theoretical simplicity. Traditional Government and Binding (specifically Principles and Paramters) 
+
+\section{Planned improvements and additions}
+\begin{itemize}
+\item A more overt demand for object stress. So far, objects still receive stress epiphenomenally (between {\starg} and {\topf}).
+\item There are a couple reasons that I don't like my current constraints. I see some holes in them, although I think they conceptually have their hearts in the right places.
+\item A more rigorous weeding-out of redundant typologies (perhaps by software). This might require getting more precise constraints, as having the ``wrong'' constraints would snowball into terrible mispredictions.
+\item Generalization to SV sentences---Why does English have \'SV, but SV\'O? How can I do this?
+\item Account of pragmatically-driven word order changes? \parencite{bolinger54}
+
+\end{itemize}
+
+
+\printbibliography
+
+\end{document}
+
