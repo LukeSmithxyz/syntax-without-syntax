@@ -9,3 +9,13 @@ The general thesis is that word order parameters can be modeled as falling out f
 ## "License"
 
 Cite with proper credit.
+
+## To-do
+
+### Mike wants
+
++ "Road signs"
++ Compare to Richards, Smolensky/Legendre, Fitzgerald
++ Example tableaux
++ Explain how OT help works
++ Other predictions
