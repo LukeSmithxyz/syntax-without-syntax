@@ -1,4 +1,4 @@
-# Syntax without Syntax
+# Syntax without Syntax -- Qualifying Paper
 
 This is the git repo for a qualifying paper of mine.
 
@@ -9,6 +9,8 @@ The general thesis is that word order parameters can be modeled as falling out f
 ## "License"
 
 Cite with proper credit.
+
+Smith, Luke. 2017. Syntax without Syntax.
 
 ## To-do
 
