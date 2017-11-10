@@ -106,8 +106,11 @@ So instead of the classical model of the syntax deriving an order and consequent
 That way, our theory should avoid drastically over-producing phonologically ill-formed grammars in the way classical accounts had to, and it also greatly moves us toward a much more Minimalist understanding of the syntax of language, in that even the basic elements of a grammar are derived from conceptually necessary external constraints.
 
 Our technical implementation for doing this will be Optimality Theory \parencite{prince93}, whose specifics will be explained in the ensuing section.
-It should be said that while Optimality Theory is still partially controversial, especially for use in syntax, I employ it here as a mere shorthard for the presumably much more complex computation performed in actually-existing neural nets, for more details, see \textcite{prince97}.
+It should be said that while Optimality Theory is still partially controversial, especially for use in syntax, I employ it here as a mere shorthand for the presumably much more complex computation performed in actually-existing neural nets, for more details, see \textcite{prince97}.
 That is to say, my employment of Optimality Theory needn't entail a belief in a literal {\textsc{Gen}} or a mental tableaux, but only the use of the formalism as an indirect shadow imitating parallel computation in a neural net.
+
+Indeed, this can be viewed as an extension of the general goal of \textcite{smolensky06} to explicate linguistic and other cognitive phenomena as attempts to achieve an optimization of constraints or ``Harmony''.
+My goal here is specifically Minimalist, but precisely the tools given by \textcite{smolensky06} allow us to posit an economical language faculty, leaving the heavy lifting and variation at the interfaces to more general cognitive architecture.
 
 \section{An Optimality-Theoretic Analysis\label{otanal}}
 
@@ -520,6 +523,7 @@ While there might not be anything formal or semantic binding these two facts, it
 Or perhaps even morphological universals; take Universal 27: ``If a language is exclusively suffixing, it is postpositional; if it is exclusively prefixing, it is prepositional.''
 The symmetry between morphology and adpositions in language \emph{could} be simply stipulated in the syntax, and perhaps reasons as being part-and-parcel in a distributed approached to morphology, but we can with no more difficulty say that this fact falls out from prosodic constraints which favor unstressed elements be on the right or left side of a heavier constituent.
 This makes a more falsifiable statement about the phonological corollaries of the situation, but also provides a non-stipulated reason for why there should be a uniformity between two theoretically distinct (although prosodically similar) elements.
+Certain languages may tend care greatly about particular constraints, which may affect parts of the phonology, parts of morphology and parts of syntax.
 
 This allows us not only to make predictions of individual languages, but also of how languages will tend to fall into linguistic types, or why it is often observed that languages often diachronically are shooting for a typologically harmonious symmetry of headedness parameters or other macro features.
 
@@ -540,15 +544,15 @@ To simplify things, a ``head-initial'' language might simply be one with a gener
 This will generally locate stress on the right side of phrases, thus making it optimal across all syntactic categories to place more prominent and lexical elements to the right of their heads.
 This thus brings us a much more plausible formal apparatus for accounting not just for individual languages, but for macro-linguistic tendencies.
 
-\subsection{Uniting Formal Linguistics with Typology and Diachrony}
-
-
+\subsection{Language acquisition as a multi-dimensional puzzle}
 
 Linking prosodic and syntactic information in such a way also opens a new dimension by which infants acquire language.
 In traditional conceptions, the infant is faced with the dual problems of learning the phonology of a target language on one hand, and the morpho-syntax on the other.
-There are a set of syntactic parameters a child must learn, and there is a non-overlapping set of syntactic rules and parameters to be learned.
+There are a set of syntactic parameters a child must learn, and there is a non-overlapping set of phonological rules and parameters to be learned.
 
-But in this new conception however, not only are prosody and syntax ``the same,'' but they are mutually reinforcing.
+This means that a child must battle on several fronts simultaneously, and the different features of phonology, syntax, and all other aspects of language are additive in difficultly.
+
+But in our new conception however, not only are prosody and syntax ``the same,'' but they are mutually reinforcing.
 That is, prosodic data, even without any lexical knowledge, hold phrasal divisions with stress in particular places in such a way that it can be used for phonological bootstrapping to make more informed assumptions about the lexical categories that presumably appear there.
 A child can hear a sentence with a particular intonation and assume not only where the stress goes, but what kind of word (in lexical category) should be there.
 
@@ -560,17 +564,9 @@ I put ``disambiguate'' in scare quotes as this ``ambiguity'' only exists once yo
 
 Prosodic processing is concommitant with ``syntactic'' processing in these cases, and the acquisition of both advances simultaneously in first language acquisition \parencite{mannel11}.
 
-\section{Comparison with other prosodic accounts}
+Again, what this means is that while language acquisition may be a puzzle with many dimensions, syntactic and prosodic, every new data point in prosody sheds light on syntax, and \textit{vice versa}.
+Instead of acquiring hundreds of different language parameters in different domains, infants are merely narrowing in on a constraint order illustrated by every data point of both syntax and phonology.
 
-Our account here has been
-
-
-It is worth it to compare our analysis with other prosodically-related accounts of syntactic phenomena, particularly Contiguity Theory as expounded by \textcite{richards16}.
-Richards' model, like ours attempts to account for syntactic differences based on prosodic disparities between languages.
-The formal aparatus for this is a general desire for probes and goals to be unified in prosodic domains, a general constraint which \textcite{richards10, richards16} quite elegantly employs to motivate alternations such as \textit{wh}-movement, etc.
-
-Our approach, however, is distinct in that Richards's assumes that sentences are gradually constructed by the \textsc{Merge} operation, and is then gradually attenuated by prosodic demands.
-For us, 
 
 \section{Closing}
 
