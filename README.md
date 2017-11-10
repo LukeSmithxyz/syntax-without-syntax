@@ -12,12 +12,3 @@ Cite with proper credit.
 
 Smith, Luke. 2017. Syntax without Syntax.
 
-## To-do
-
-### Mike wants
-
-+ "Road signs"
-+ Compare to Richards, Smolensky/Legendre, Fitzgerald
-+ Example tableaux
-+ Explain how OT help works
-+ Other predictions
