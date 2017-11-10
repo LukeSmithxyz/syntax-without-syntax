@@ -94,7 +94,7 @@ This was in keeping with the traditional Y-model of the grammar \parencite{choms
 While \textcite{halle87}'s theory is consistent with any word order with any stress pattern, Kahnemuyipour notes that observed human languages only take advantage of a subset of combinations of word orders and stress patterns, specifically, those that serve to produce languages in keeping with the generalization above: sentential stress should fall on the object and all arguments should be stressed over the verb.
 
 Thus as a typological theory, \textcite{halle87}'s account fails to sufficiently constrain the possible number of grammars, the surfeit of which yields a modeled language faculty with presumably more complexity than the actually-existing language faculty.
-Indeed, with some introspection, it should be clear that \emph{any} theory in which syntactic constituents are ordered before and without reference to the prosodic tendencies will necessarily generate a surfeit of possible prosodic grammars.
+Indeed, with some introspection, it should be clear that \emph{any} theory in which syntactic constituents are ordered before and without reference to the prosodic tendencies will necessarily generate an unwanted over-abundance of possible prosodic grammars.
 
 Now an ideal theory of word order would be one in which not only we can constraint the number of possible grammars to approximately what we observe in actually instantiated languages, but also a theory which motivates those parametric differences as being grounded in some kind of conceptually necessary external factor.
 
@@ -113,12 +113,13 @@ That is to say, my employment of Optimality Theory needn't entail a belief in a 
 
 In order to move toward a plausible phonologically-grounded analysis, we can implement prosodic constraints in Optimality Theory \parencite{prince93} and see what kind of word order typology can come about.
 In the following analysis, we will provide an constraint system two main forms: a transitive sentence (containing a subject (S), object (O) and verb (V)) and an intransitive one (containing only an S and V).
-Thus the input to the phonological system will not be a linearized string, similar to \textcite{halle87}, but an unordered set of constituents.
+Thus the input to the phonological system will not be a linearized string, similar to \textcite{halle87}, but an unordered set of constituents (in notation, indicated as being in \{\}).
 
 The Optimality Theoretic system will then generate candidates for each one, each with either a different linear order or a different pattern of phonological phrasing uniting the constituents.
 After that, we will reorder and apply different constraints (listed and explained in Section \ref{straints}) and analyze which of the theoretically-possible word order arise from this framework.
 
 As a reminder, the main theoretical gain here is the lack of need for reference for independent syntactic parameters and a causal theory of word order that does not wildly overgenerate grammars.
+That is, a theory like this where over-arching prosodic constraints drive basic word order, we not only give a causal account of existing data, but account the \emph{absence} or impossibility of non-observed language patterns.
 
 \subsection{Generation of Candidates\label{generation}}
 
@@ -137,18 +138,49 @@ That is, \textsc{Gen} does not generate candidates such as S[VO] or [SO]V where 
 For now, this is an issue of convenience, although it might make for an expanded typology for a further analysis.
 
 Additionally it will be assumed in line with the aforementioned typological generalization that subjects and objects will always receive a stress superior to that of the verb, objects receiving the most stress.
-Therefore, implicitly, all constituents \emph{already} have stress on them, thus [S][VO] is merely a shorthand for [{\'S}][V\textbf{\'O}].
+Therefore, implicitly, all constituents \emph{already} have stress on them, thus [S][VO] is merely a shorthand for [{\'S}][V\textbf{\'O}] (where the object takes the highest stress, followed by the subject, followed by the verb).
 \textsc{Gen}, therefore, does not generate candidates of the stripe [S][\textbf{\'V}\'O], etc. that violate the stress universals behind sentence constituent stress.
 
 This may seem like begging the question, but I'd argue that in reality it is precisely how a theory of prosodic word order should be formulated.
 To make it clear, one can look at it this way: we can replace O, S and V with H, M and L respectively, for high, mid-level and low stress.
-We can think of the OT derivation as deciding what points in the sentence sentential stress will be placed and phonological phrase boundaries will be formed.
+That is, instead we can think of the OT derivation as deciding what points in the sentence sentential stress will be placed and phonological phrase boundaries will be formed.
 
 And then ``after'' candidate-selection, the language faculty will seamlessly map the object onto the highest stressed position, the subject on the mid-level and the verb on the low or stressless position.
 The placement of these elements at the same levels of stress across all languages is precisely the constant behind word order differences.
 What varies is where that stressed position ends up in the sentence, and it is that which our constraints will determine.
 
+\begin{figure}
+	\begin{center}
+	\begin{tabular}{cccc}
+		{}[SOV]&[S][OV]&[SO][V]&[S][O][V]\\
+		{}[SVO]&[S][VO]&[SV][O]&[S][V][O]\\
+		{}[VSO]&[V][SO]&[VS][O]&[V][S][O]\\
+		{}[VOS]&[V][OS]&[VO][S]&[V][O][S]\\
+		{}[OVS]&[O][VS]&[OV][S]&[O][V][S]\\
+		{}[OSV]&[O][SV]&[OS][V]&[O][S][V]\\
+	\end{tabular}
+	\end{center}
+	\caption{All theoretically possible word orders and parses for transitive verbs\label{allcand}}
+\end{figure}
+
+All in all, we can sum up all of the possible candidates generated by \textsc{Gen} given these assumptions.
+Figure \ref{allcand} shows all possible candidates for a transitive clause, there being 24---four possible parses for each of the six possible linear configurations of the subject, object and verb.
+Figure \ref{instrans} shows the paltry four possible candidates for an intransitive clause.
+
+\begin{figure}
+	\begin{center}
+		\begin{tabular}{cc}
+			{}[SV]&[S][V]\\
+			{}[VS]&[V][S]\\
+		\end{tabular}
+	\end{center}
+	\caption{All four possible parses for intransitive clauses\label{instrans}}
+\end{figure}
+
 \subsection{Justification and Explanation of Constraints\label{straints}}
+
+Now that we've established the possible candidates, we can detail the constraints that will decide amongst them for particular grammars.
+We will be dealing with 8 total constraints, each one in one way or another derived from previous phonological literature or plausible typological generalizations.
 
 \subsubsection{\cont}
 
@@ -160,16 +192,16 @@ Thus [SO][V] and [SVO] violate the constraint, while [S][OV] and [S][VO] do not.
 
 \begin{figure}
 \begin{center}
-\begin{tableau}{c}
-	\inp{$\{S,O,V\}$}	\const{\cont}	
-\cand[\Optimal]{[S][OV]} \vio{}		
-\cand[\Optimal]{[S][VO]} \vio{}		
-\cand{[SO][V]} \vio{*!}
-\cand{[SOV]} \vio{*!}
-\cand{[SVO]} \vio{*!}
+\begin{tableau}{ccc}
+	\inp{$\{S,O,V\}$}	\const{\cont}	\const{\iamb}
+	\cand[\Optimal]{[S][OV]} \vio{}		\vio{}
+	\cand{[S][VO]} \vio{}		\vio{*!}
+	\cand{[SO][V]} \vio{*!}\vio{}
+	\cand{[SOV]} \vio{*!}\vio{}
+	\cand{[SVO]} \vio{*!}	\vio{*}
 \end{tableau}
 \end{center}
-	\caption{\cont{} exemplified.}
+	\caption{\cont{} and {\iamb} exemplified.}
 \end{figure}
 
 \subsubsection{{\troc} and {\iamb}}
@@ -265,37 +297,27 @@ To be clear, [VSO] or any other order of elements in one and only one phonologic
 
 \section{Implementation and Analysis}
 
-\begin{figure}
-	\begin{center}
-	\begin{tabular}{cccc}
-		{}[SOV]&[S][OV]&[SO][V]&[S][O][V]\\
-		{}[SVO]&[S][VO]&[SV][O]&[S][V][O]\\
-		{}[VSO]&[V][SO]&[VS][O]&[V][S][O]\\
-		{}[VOS]&[V][OS]&[VO][S]&[V][O][S]\\
-		{}[OVS]&[O][VS]&[OV][S]&[O][V][S]\\
-		{}[OSV]&[O][SV]&[OS][V]&[O][S][V]\\
-	\end{tabular}
-	\end{center}
-	\caption{All theoretically possible word orders and parses}
-\end{figure}
 
-As mentioned in Section \ref{generation}, the candidate set for transitive clauses consists of 24 viable candidates, that is, for each of the six logical subject, object, verb orders, four different parsings, e.g. for the order SVO: [SVO], [S][VO], [SV][O] and [S][V][O].
+As mentioned in Section \ref{generation}, the candidate set for transitive clauses consists of 24 viable candidates, that is, for each of the six logical subject, object, verb orders, four different parsings, e.g. for the order SVO: [SVO], [S][VO], [SV][O] and [S][V][O] (see Figure \ref{allcand}).
 
-The candidate set for intransite clauses is significantly smaller, consisting only of the only four logically-possible parsings of the subject and verb alone: [SV], [S][V], [VS] and [V][S].
+The candidate set for intransite clauses is significantly smaller, consisting only of the only four logically-possible parsings of the subject and verb alone: [SV], [S][V], [VS] and [V][S] (see Figure \ref{instrans}).
 
 Given these possible word orders and parses, and given these constraints, the core question thus arises: \textbf{What possible word orders  can be produced by these constraints given what candidates violate them?}
 Ideally, if we have constructed a decent theory, our constraints should be able to account for much of typological reality in actually-existing languages, while ruling out or dispreferring poorly-attesting orders.
 
 It should also be noted that by ``word orders'' we mean pairs of transitive and intransitive orders.
-We might expect a language (i.e. ordering of constraints) that favors SVO clauses to also prefer SV instransitive clauses, also that is not a logical necessity, as languages such as Spanish indicate.
+We might expect a language (i.e. ordering of constraints) that favors SVO clauses to also prefer SV instransitive clauses, also that is not a logical necessity, as languages such as Spanish demonstrate.
 
 \subsection{Methods}
 
 For ease of analysis, and in aid of creating a typology, I fed a spreadsheet of all candidates, constraints and the violations each constraint would incur for each candidate into the OT-Help program \parencite{othelp}.\footnote{The source file used for this analysis can be found at \href{http://lukesmith.xyz/ling/word_order.csv}{http://lukesmith.xyz/ling/word\_order.csv}} This software package takes such spreadsheets and returns an interactive report of possible languages resulting from different constraints interacting over different underlying forms.
 
-This software package can be fed tableaux of constraints, candidates and their violations and will determine what possible constrain orders are consistent to produce the given candidates.
+This software package can be fed tableaux of constraints, candidates and their violations and will determine what possible constraint orders are consistent to produce the given candidates.
+Specifically, if there are word orders or parsings (from our list of 24 possible parsings for transitive clauses and 4 possible for intransitives) which are never possible for any given order of constraints, OT-Help will make us aware of that.
+Additionally, for each ordering of constraints, there will be precisely one transitive parsing and one intransitive parsing which will be consistent\footnote{That is, barring circumstances where we do not have sufficient violations to distinguish candidates.}.
+These pairings are important for our typology as well, as it may be that a certain type of intransitive clause necessitates another type of transitive clause or \textit{vice versa}.
 
-\subsection{The Typology}
+\subsection{The Results and Typology}
 
 \newcommand{\no}{\textcolor{gray}}
 
@@ -455,7 +477,7 @@ If we expanded our theory to make room for extrametricality, we might allow for 
 
 \subsubsection{The (near) lack of O {\textgreater} S order}
 
-Of the ten theoretical order, only one parsing allows for the object to appear linearly before the subject: [VO][S]/[VS].
+Of the ten theoretical parsings, only one allows for the object to appear linearly before the subject: [VO][S]/[VS].
 As stated before, this is the most common of the vanishingly rare O {\textgreater} S orders, and it seems to be a perfect storm of missed ranking violations.
 Such an order arises from a ranking as follows:
 
@@ -475,9 +497,18 @@ If we run the same candidates with otherwise the same constraints\footnote{For t
 A way to think about this is that there are many possible constraint orderings which without {\topf} would generate a [VO][S] grammar, which is a local optimum.
 While {\topf} does not remove this local maximum, it redirects some possible grammars to a nearby local maximum, either [VS][O] or [VSO], depending on the particular constraint order.
 
+\subsection{Review of analysis}
+
+We know have a colorful and reasonably accurate typology of the world's existing languages with specific predictions of what possible parsings may occur.
+I don't at all pretend that this analysis is perfect, nor do I doubt that similar work with a slimming or streamlining of constraints or assumptions, but let's make the general point clear.
+
+The great boon of Optimality Theory and the more general idea that the mind is a harmonic optimizer gives us (1) enormous empirical coverage or individual and typological linguistic facts (2) given few, but plausible derived assumptions (3) without having to posit additional mental organs and UG-machinery.
+
+This allows us to have a truly Minimalist account of the origin of not just language facts, but of typological facts as well.
+
 \section{Formal and functional extensions\label{exten}}
 
-This kind of analysis of language is highly pliable to new empirical domains.
+In fact, kind of analysis of language is highly pliable to new empirical domains.
 Specifically, because it links syntactic word order to non-syntactic fact, not only can we make predictions about a language's syntax by noting the traits of its phonology, but we can also establish causal, empirical links between otherwise unlinkable syntactic ``parameters.''
 
 Let's take the generalizations made by work such as \textcite{greenberg63}.
@@ -509,7 +540,9 @@ To simplify things, a ``head-initial'' language might simply be one with a gener
 This will generally locate stress on the right side of phrases, thus making it optimal across all syntactic categories to place more prominent and lexical elements to the right of their heads.
 This thus brings us a much more plausible formal apparatus for accounting not just for individual languages, but for macro-linguistic tendencies.
 
-\subsection{Acquistion and Comprehension Effects}
+\subsection{Uniting Formal Linguistics with Typology and Diachrony}
+
+
 
 Linking prosodic and syntactic information in such a way also opens a new dimension by which infants acquire language.
 In traditional conceptions, the infant is faced with the dual problems of learning the phonology of a target language on one hand, and the morpho-syntax on the other.
@@ -527,6 +560,18 @@ I put ``disambiguate'' in scare quotes as this ``ambiguity'' only exists once yo
 
 Prosodic processing is concommitant with ``syntactic'' processing in these cases, and the acquisition of both advances simultaneously in first language acquisition \parencite{mannel11}.
 
+\section{Comparison with other prosodic accounts}
+
+Our account here has been
+
+
+It is worth it to compare our analysis with other prosodically-related accounts of syntactic phenomena, particularly Contiguity Theory as expounded by \textcite{richards16}.
+Richards' model, like ours attempts to account for syntactic differences based on prosodic disparities between languages.
+The formal aparatus for this is a general desire for probes and goals to be unified in prosodic domains, a general constraint which \textcite{richards10, richards16} quite elegantly employs to motivate alternations such as \textit{wh}-movement, etc.
+
+Our approach, however, is distinct in that Richards's assumes that sentences are gradually constructed by the \textsc{Merge} operation, and is then gradually attenuated by prosodic demands.
+For us, 
+
 \section{Closing}
 
 All of this we should expect if, as I have argued, syntactic parameters \emph{are} merely results of prosodic parameters.
@@ -536,7 +581,6 @@ This kind of account of syntactic difference is thus a movement to a maximally M
 To repeat, given these several constraints, we can closely approximate the word orders of $\approx$99\% of the world's languages, and we can plausibly motivate these constraints in such a way that makes tangible, falsifiable predictions about what sort of prosodic characteristics should correlate with what word orders.
 
 It also opens to gates to similar analysis branching over syntactic category, phrasal level and even macro-comparison, an area of linguistics which has been somewhat out of the reach of the formal tools of Generative Linguistics thus far.
-
 
 \printbibliography
 
