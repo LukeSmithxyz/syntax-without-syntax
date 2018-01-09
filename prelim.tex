@@ -1,3 +1,4 @@
+%xelatex
 \documentclass{article}
 
 \usepackage[utf8]{inputenc}
@@ -355,17 +356,19 @@ These pairings are important for our typology as well, as it may be that a certa
 
 \subsection{The Results and Typology}
 
+\subsubsection{Languages}
+
 \newcommand{\no}{\textcolor{gray}}
 
 \begin{figure}
 	\begin{center}
 	\begin{tabular}{cccc}
-		{}[SOV]&[S][OV]&\no{[SO][V]}&\no{[S][O][V]}\\
-		{}[SVO]&[S][VO]&\no{[SV][O]}&\no{[S][V][O]}\\
-		{}[VSO]&\no{[V][SO]}&[VS][O]&\no{[V][S][O]}\\
-		{}\no{[VOS]}&\no{[V][OS]}&[VO][S]&\no{[V][O][S]}\\
-		{}\no{[OVS]}&\no{[O][VS]}&\no{[OV][S]}&\no{[O][V][S]}\\
-		{}\no{[OSV]}&\no{[O][SV]}&\no{[OS][V]}&\no{[O][S][V]}\\
+		{}[SÓV]&[S][ÓV]&\no{[SÓ][V]}&\no{[S][Ó][V]}\\
+		{}[SVÓ]&[S][VÓ]&\no{[SV][Ó]}&\no{[S][V][Ó]}\\
+		{}[VSÓ]&\no{[V][SÓ]}&[VS][Ó]&\no{[V][S][Ó]}\\
+		{}\no{[VÓS]}&\no{[V][ÓS]}&[VÓ][S]&\no{[V][Ó][S]}\\
+		{}\no{[ÓVS]}&\no{[Ó][VS]}&\no{[ÓV][S]}&\no{[Ó][V][S]}\\
+		{}\no{[ÓSV]}&\no{[Ó][SV]}&\no{[ÓS][V]}&\no{[Ó][S][V]}\\
 	\end{tabular}
 	\end{center}
 	\caption{The possible word orders given our constraints}
@@ -419,6 +422,38 @@ These ten possible language types are listed below by word order:
 
 Thus of the six logically possible \emph{linear} word orders (ignoring phonological phrasing\footnote{While it would behoove us to have wide typological data on phonological phrasing, to my knowledge, it is much harder to come by, and usually divided in many local analyses of single languages}), our constraints have yielded only four of them, precisely those four which make up $\approx$99\% of actually existing languages (1173 out of 1188 surveyed according to \textcite{dryer13}).
 Of the most common word orders (SOV/SVO/VSO), there are multiple parsing types.
+
+\subsection{Number of possible constraint orderings}
+
+We have 8 constraints in our system and therefore the number of theoretically possible orderings of constraints is $!8 = 40320$. Of this forty-thousand, only around $5904$ of these constraint orderings are internally coherent to produce the forms yielded by \textsc{Gen}.
+
+In Figure \ref{connum}, we can see a full list of the constraint rankings with the corresponding number of possible constraint configurations that will generate them.
+
+These are calculated from the product of the factorials of the number of constraints in each constrain block.
+E.g. for the order
+[SVO]/[SV],
+The required order is \cons, \nophi, \initphi, \topf, {\troc} {\textgreater} \cont, {\finphi,} {\textgreater} \iamb: five constraints ranked over two constraints ranked over one. Thus the possible number of constraint configurations is $5! \times 2! \times 1! = 120 \times 2 \times 1 = 240$.
+
+We will discuss the implications of these constraint counts later in section \ref{numanal}.
+
+\begin{figure}
+	\centering
+	\begin{tabular}{cr}
+		{}[SVO]/[SV] & 240\\
+		{}[S][VO]/[SV] & 96\\
+		{}[SVO]/[VS] & 144\\
+		{}[S][VO]/[VS] & 576\\
+		{}[SOV]/[SV] & 1440\\
+		{}[S][OV]/[SV] & 1440\\
+		{}[S][OV]/[VS] & 96\\
+		{}[VS][O]/[VS] & 576\\
+		{}[VSO]/[VS] & 720\\
+		{}[VO][S]/[VS] & 576\\\hline
+		%{}[<++>]/[<++>] & <++>\\
+		\emph{Total} & \textbf{5904}\\
+	\end{tabular}
+	\caption{The number of constraint orderings for each possible language.\label{connum}}
+\end{figure}
 
 
 \subsection{Exemplification of and Comments on Constraint System}
@@ -519,6 +554,7 @@ Of the ten theoretical parsings, only one allows for the object to appear linear
 As stated before from \textcite{dryer13}'s analysis, this is by far the most common of the still vanishingly rare O {\textgreater} S orders, and in our system it seems to be a perfect storm of missed ranking violations as we can see below.
 Such an order arises from a ranking as follows:
 
+
 \begin{center}
 \cont, \iamb, \cons, {\finphi} {\textgreater} \nophi, \initphi, \topf, \troc
 \end{center}
@@ -534,6 +570,26 @@ If we run the same candidates with otherwise the same constraints\footnote{For t
 {\topf} does not by itself serve to weed out unwanted orders, but allows to the existence of an optimal VSO solution.
 A way to think about this is that there are many possible constraint orderings which without {\topf} would generate a [VO][S] grammar, which is a local optimum.
 While {\topf} does not remove this local maximum, it redirects some possible grammars to a nearby local maximum, either [VS][O] or [VSO], depending on the particular constraint order.
+
+\subsubsection{The typological (ir)relevance of constraint configuration counts\label{numanal}}
+
+One final question brought from the Figure \ref{connum} is whether the number of possible constraint configurations for each possible grammar is indeed relevant.
+
+Superficially there might be a temptation to say that there is, as, for example, the most common word order in the world SOV/SV is represented by 2880 different possible constraint orderings, by far the most of any surface word order, while the word order SOV/VS, which I have admitted is produced by our analysis, but so far as I know does not exist, only has a paltry 96 possible configurations.
+
+We \emph{could} say that languages in the abstract are selected stochastically from constraint orderings and thus we should expect SOV/SV to be prevalent over SOV/VS in the same degree that it has a larger number of possible rankings, but I do not believe this is a plausible model of how languages develop or even the synchronic facts of languages as they exists.
+Even more, there are good reasons to think that languages with fewer possible constraint rankings are \emph{easier} to learn and parse.
+
+Against the empirical claims, most obviously SVO/SV languages, the second most common in the world, are sorely \emph{underrepresented} in the number of possible rankings that generate them (in total only 336 rankings, compared to the 1296 of VSO languages).
+
+Even more important, we have to realize that what drives there to be a small number of possible rankings for languages like SVO is that they tend to have a small group of constraints of unambiguous ranking.
+For example, the \iamb{} constrain \emph{must} be the absolute lowest one in an SVO/SV, with another small pair of constraints (\cont and \initphi) nearly just as low.
+
+This is contrasted with say VSO languages, which in our model have four generally high constraints and four generally low ones which can be in any order so long as one block is higher than the other. Since these blocks are formed by several ambiguously ranked constraints, the factorial of these blocks is multiplicatively much larger.
+
+I'm unaware if there has acquisitional arguments to this effect, but I'd reckon it'd be substantially easier for a learner to acquire a language if it has several constraints of unambiguously high or low rankings, allowing them to narrow down on an appropriate general constraint order earlier.
+
+This is all to say while I think credence should be lent to the typology created by this model, the number of possible rankings might be less meaningful than they may seem in real-world language development and in cognition.
 
 \subsection{Review of analysis}
 
