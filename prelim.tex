@@ -117,7 +117,7 @@ Our technical implementation for doing this will be Optimality Theory \parencite
 It should be said that while Optimality Theory is still partially controversial, especially for use in syntax, I employ it here as a mere shorthand for the presumably much more complex computation performed in actually-existing neural nets, for more details, see \textcite{prince97}.
 That is to say, my employment of Optimality Theory needn't entail a belief in a literal {\textsc{Gen}} or a mental tableaux, but only the use of the formalism as an indirect shadow imitating parallel computation in a neural net or some other type of cognitive architecture which is not important \textit{per se} for us now.
 
-Indeed, this can be viewed as an extension of the general goal of \textcite{smolensky06} to explicate linguistic and other cognitive phenomena as attempts to achieve an optimization of constraints or ``Harmony''.
+Indeed, this can be viewed as an extension of the general goal of \textcite{smolensky06} to explicate linguistic and other cognitive phenomena as attempts to achieve an optimization of constraints.
 My goal here is specifically Minimalist, but precisely the tools given by \textcite{smolensky06} allow us to posit an economical language faculty, leaving the heavy lifting and variation at the interfaces to more general cognitive architecture.
 
 It should also be noted that while we have similar goals and methods as prosodically-attuned theories of syntax such as Contiguity Theory \parencite{richards16}, we differ in important ways.
@@ -144,27 +144,30 @@ That is, a theory like this where over-arching prosodic constraints drive basic 
 
 \subsection{Generation of Candidates\label{generation}}
 
-We will say that \textsc{Gen} generates candidates that vary two main ways.
+We will say that \textsc{Gen} generates candidates for sentential order that vary two main ways.
 First, the linear order of constituents; each logical order of the elements is viable.
 This means that as a starting point, we have the six logical possibilities of combinations of the subject, object and verb, i.e.: SOV, SVO, VSO, VOS, OVS, OSV.
 
 Secondly, \textsc{Gen} can generate candidates with various phonological constituency.
 That is, each of the elements (S, O and V) must be put in (and may share) a phonological phrase.
-This means for each of the six orders, we have four different non-vacuous candidates, say for the SVO order, we can parse the constituents as [SVO], [S][VO], [SV][O] or [S][V][O].\footnote{There is the logical possibility of generating candidates such as [V][][S][O][], etc. with empty phonological phrases. I will not include candidates like this, but they are dealt with by the to-be-mentioned {\nophi} constraint.}
+This means for each of the six orders, we have four different non-vacuous candidates, say for the SVO order, we can parse the constituents as [SVO], [S][VO], [SV][O] or [S][V][O].
 
 \subsection{The Nature of the Candidates}
 
-Let's be clear what these candidates are in the linguistic system.
-The designations V, S and O are shorthand for where the subject, verb and object will placed.
-Since we are dealing with constituent-placement based on stress, we would probably be more loyal, although perhaps less communicative to annotate these three elements by \emph{sentential stress level}, i.e.: L(ow), M(iddle) and H(igh), as it will be assumed in line with the aforementioned typological generalization that subjects and objects will always receive a stress superior to that of the verb, objects receiving the most stress.
+Let's be clear what these candidates are in the linguistic system, as our goal is to create a phonologically-motivated model the word order itself.
+Firstly, the designations V, S and O are shorthand for where the subject, verb and object will placed, but these are ultimately meant to \emph{prosodic} contours into which each of these elements are placed.
+That is, this account is built on the assumption of the universal generalization mentioned in \textcite{gundel88} and \textcite{kahnemuyipour05}: that verbal arguments always receive a stress level more prominent than the verb, and objects, if present receive sentential stress.
+Since we are dealing with constituent-placement based on stress, we would probably be more loyal, albeit perhaps less communicative to annotate these three elements by \emph{sentential stress level}, i.e.: L(ow), M(iddle) and H(igh).
 
 All that is to say that what \textsc{Gen} is creating is a prosodic template, and the constraints that condition it will be prosodic in nature.
 And then ``after'' candidate-selection, the language faculty will seamlessly map the object onto the highest stressed position, the subject on the mid-level and the verb on the low or stressless position.
 The placement of these elements at the same levels of stress across all languages is precisely the constant behind word order differences.
 What varies is where that stressed position ends up in the sentence, and it is that which our constraints will determine.
 
-Therefore, implicitly, all constituents \emph{already} have stress on them, thus [S][VO] is merely a shorthand for [{\`S}][V\'O] (where the object takes the highest stress, followed by the subject, followed by the verb).
+So implicitly, all of the main sentential constituents \emph{already} have stress on them, thus [S][VO] is merely a shorthand for [{\`S}][V\'O] (where the object takes the highest stress, followed by the subject, followed by the verb).
 \textsc{Gen}, therefore, does not generate candidates of the stripe [S][\'V\`O], etc. that violate the stress universals behind sentence constituent stress.
+
+Again, the enormous gain in an approach like this is that the overgeneration problem present in earlier works which treated syntax as prior to stress assignment, i.e., that the \textcite{halle87} system could easily produce a huge number of non-attested grammars totally outside of sensible stress pattern generalizations of existing languages.
 
 \subsection{Additional Assumptions\label{assump}}
 
@@ -231,14 +234,31 @@ Thus [SO][V] and [SVO] violate the constraint, while [S][OV] and [S][VO] do not.
 \subsubsection{{\troc} and {\iamb}}
 
 {\troc} and {\iamb} are similar and countervailing phonological constraints, now applied to the phrasal level.
-{\troc} demands that a constituent have trochaic stress (starting at the first subconstituent and alternating).
-And {\iamb} requires that a constituent have iambic stress (starting at the second subconstituent and alternating).
+{\troc} demands that a constituent have a stressed element as the initial subconstituent,
+while {\iamb} requires that a constituent have stress on the second subconstituent.
 Similar constraints have been variously posited in the literature, such as \textcite{selkirk11}'s \textsc{StrongStart} or \textcite{fitzgerald94}'s \textsc{Trochee}, both of which demand particular kinds of syntactic constituents to appear in crucial phrasal positions.
 
-In this implementation, {\troc} and {\iamb} should be understood as applying to the whole intonational phrase (here effectively a sentence), and \emph{not} the phonological phrases delineated with brackets: {\troc} and {\iamb}.
+It's important to note that these constraints, similar to \textsc{StrongStart} in \textcite{selkirk11} are only sensitive to the left edge, and do not demand alternating stressed elements as we will implement them.
+
+In this implementation, {\troc} and {\iamb} should be understood as applying to the whole \textit{intonational phrase} (here effectively a sentence), and \emph{not} the phonological phrases delineated with brackets: {\troc} and {\iamb}.
+To put it another way, {\troc} and {\iamb} will apply the same way to candidates regardless about how the subconstituents are parsed in prosodic phrases (again, denoted with brackets [ ] in our notation).
 
 For example, all verb-initial languages VSO, VOS, in all possible parses, will violate {\troc}.
 All verb second languages (SVO, OVS) will violate {\iamb}.
+We can see both of these facts in Figure \ref{tramb}.
+
+\begin{figure}
+	\begin{center}
+		\begin{tableau}{cc}
+			\inp{$\{S,O,V\}$}	\const{\troc}	\const{\iamb}
+			\cand{[S][VO]}	\vio{}	\vio{*!}
+			\cand{[SVO]}	\vio{}	\vio{*!}
+			\cand{[VSO]}	\vio{*!}	\vio{}
+			\cand[\Optimal]{[SOV]}	\vio{}	\vio{}
+		\end{tableau}
+	\end{center}
+	\caption{\troc{} and \iamb{} exemplified.\label{tramb}}
+\end{figure}
 
 \subsubsection{{\initphi} and {\finphi}}
 
@@ -253,13 +273,14 @@ Thus, [S][VO] violates {\initphi}, [OV][S] violates {\finphi}, [SVO] violates ne
 
 It's important to sever the dichotomy between {\troc} and {\iamb} from {\initphi} and {\finphi}. While {\initphi} and {\finphi} are sensitive only to phrase edges, {\troc} and {\iamb} can be violated by any improperly metrical subconstituent. Additionally, {\finphi}, unlike {\iamb} is computed from the right edge.
 
-
 \begin{figure}
 \begin{center}
 \begin{tableau}{c|c}
 	\inp{$\{S,O,V\}$}	\const{\initphi}	\const{\finphi}
-	\cand[\Optimal]{[OV]} \vio{}	\vio{*}
-	\cand{[VO]} \vio{*!}	\vio{}
+	\cand{[S][OV]} \vio{}	\vio{*!}
+	\cand{[S][VO]} \vio{*!}	\vio{}
+	\cand{[V][SO]}	\vio{*!}	\vio{*}
+	\cand[\Optimal]{[SVO]}	\vio{}	\vio{}
 \end{tableau}
 \end{center}
 	\caption{A higher ranking of {\initphi} over {\finphi} favors clauses with initial stress.}
@@ -274,13 +295,24 @@ It should be additionally noted that this constraint has strong typological coro
 
 In this implementation {\topf} will yield a violation for any candidate that places its object to the left of its subject, thus all OSV, OVS and VOS orders sustain a violation of this constraint, while all SVO, SOV and VSO orders do not.
 
-One may think of this in discourse or pragmatics terms, rather than simply prosody.
-If we abstract from the actual constituents and look only at the stress that associates with them, this constraint is violated whenever a primary stress (represented by O) occurs before a secondary stress (represented by S).\footnote{This isn't to say I have any problems modeling the computation of syntax, prosody, discourse relevance and everything else in language simultaneously. Indeed, I think such a synchrony is necessary.}
+While it might be more intuitive to state this constrain in pragmatic terms, we can just as easily state it in prosodic terms, saying that the secondary stress of a sentence must precede the primary stress.
 
 \subsubsection{\nophi}
 
 {\nophi} is simply a principle of economy applied to phonological phrasing.
 \textit{Ceteris paribus}, a language will want to economize on the number of phonological phrases employed in any given structure.
+
+\begin{figure}
+	\begin{center}
+		\begin{tableau}{c}
+			\inp{${S,O,V}$}	\const{\nophi}
+			\cand[\Optimal]{[SOV]}	\vio{*}
+			\cand{[S][O][V]}	\vio{*!**}
+			\cand{[SO][V]}	\vio{*!*}
+		\end{tableau}
+	\end{center}
+\caption{\nophi{} yields a violation for each phonological phrase.}
+\end{figure}
 
 In the implementation, a candidate incurs one {\nophi} violation for each phonological phrase it has.
 [OSV] will have one violation; [O][SV] will have two; [O][S][V] will have three, while a totally unparsed OSV would hypothetically have zero.
@@ -296,6 +328,7 @@ It is {\nophi} that rules out, say [V][][SO][][] as an alternative to [V][SO].
 	\inp{$\{S,O,V\}$}	\const{\cons}
 	\cand{[SO][V]} \vio{*!}
 	\cand[\Optimal]{[S][VO]} \vio{}
+	\cand{[SV][O]} \vio{*!}
 \end{tableau}
 \end{center}
 	\caption{{\cons} wants two elements in a {\textphi} only when they are a semantic constituent.}
@@ -314,7 +347,7 @@ To be clear, [VSO] or any other order of elements in one and only one phonologic
 
  The fact that I have made reference to logical or syntactic constituency may seem like a kind of cheat given the fact that I said these constituents (S, V, O) could be thought of as merely different levels of stress.
  If that is the case, however, it should be clear that this constraint can be reformulated in phonological terms.
- That is, if two phonological constituents are to be under the same phonological phrase, they should be maximally distinct in terms of stress level.
+ That is, if two phonological constituents are to be under the same phonological phrase, they have a \emph{maximally distinct} contour in stress level.
  This makes this constraint, in phonological terms, almost an equivalent of {\cont} at a different level of abstraction.
 
  \begin{figure}
@@ -391,7 +424,7 @@ These ten possible language types are listed below by word order:
 
 [S][VO]/[SV]: \cont, \cons, \topf, {\troc} {\textgreater} \nophi, {\finphi} {\textgreater} \iamb, \initphi
 \item \textbf{An SVO/VS language}, that is, an SVO-type language whose intransitive clauses are verb-initial.
-	This can be related to languages like Spanish.
+	This can be related to languages like Spanish where subjects without a purposeful topical interpretation are wont to follow the intransitive verb.
 		Again, two subtypes: one parsed [SVO]/[VS] and another parsed [S][VO]/[VS].
 
 \begin{itemize}
@@ -439,7 +472,7 @@ E.g., for the order
 [SVO]/[SV],
 The required order is \cons, \nophi, \initphi, \topf, {\troc} {\textgreater} \cont, {\finphi,} {\textgreater} \iamb: five constraints ranked over two constraints ranked over one. Thus the possible number of constraint configurations is $5! \times 2! \times 1! = 120 \times 2 \times 1 = 240$.
 
-We will discuss the implications of these constraint counts later in section \ref{numanal}.
+We will discuss the implications of these constraint counts later in Section \ref{numanal}.
 
 \begin{figure}
 	\centering
@@ -594,6 +627,8 @@ This is contrasted with say VSO languages, which in our model have four generall
 I'm unaware if there has acquisitional arguments to this effect, but I'd reckon it'd be substantially easier for a learner to acquire a language if it has several constraints of unambiguously high or low rankings, allowing them to narrow down on an appropriate general constraint order earlier.
 
 This is all to say while I think credence should be lent to the typology created by this model, the number of possible rankings might be less meaningful than they may seem in real-world language development and in cognition.
+
+But this might still be an issue worth expounding on as the two order orders that have the greatest number of possible constraint configurations, SOV and VSO are the instantiations of the most harmonic head-final and head-initial grammars.
 
 \subsection{Review of analysis}
 
