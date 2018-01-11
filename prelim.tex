@@ -97,7 +97,7 @@ Early generative attempts at typologizing phrasal stress, particularly the semin
 This was in keeping with the traditional Y-model of the grammar \parencite{chomsky65}, in which the syntax fed the phonological system a finished syntactic object, then presumably with a word order based on syntactic constraints.
 
 \textcite{kahnemuyipour05} notices, however, that accounts like this over-generate the set of observable human languages.
-While \textcite{halle87}'s theory is consistent with any word order with any stress pattern, Kahnemuyipour notes that observed human languages only take advantage of a subset of combinations of word orders and stress patterns, specifically, those that serve to produce languages in keeping with the generalization above: sentential stress should fall on the object and all arguments should be stressed over the verb.
+While \textcite{halle87}'s theory is consistent with any word order with any stress pattern, Kahnemuyipour notes that observed human languages only take advantage of a subset of combinations of word orders and stress patterns, specifically, those that serve to produce languages in keeping with the generalization above: sentential stress should fall on the object, if present, and all arguments should be stressed over the verb.
 
 Thus as a typological theory, \textcite{halle87}'s account fails to sufficiently constrain the possible number of grammars, the surfeit of which yields a modeled language faculty with presumably more complexity than the actually-existing language faculty.
 Indeed, with some introspection, it should be clear that \emph{any} theory in which syntactic constituents are ordered before and without reference to the prosodic tendencies will necessarily generate an unwanted over-abundance of possible prosodic grammars.
@@ -109,17 +109,19 @@ That is, in language acquisition, we know that a child has to learn and prioriti
 As mentioned before, it also seems that certain syntactic elements follow prosodic phrases in perfect lockstep.
 So instead of the classical model of the syntax deriving an order and consequently feeding that output into the phonological system, we can instead say that we first take the established phonological traits of a language and then use them to derive on an optimal word order given those constraints.
 
+That is, learning word order is not an issue of learning a linear sequence of words, but a prosodic pattern from which speakers can assume the proper position of each word.
+
 That way, our theory should avoid drastically over-producing phonologically ill-formed grammars in the way classical accounts had to, and it also greatly moves us toward a much more Minimalist understanding of the syntax of language, in that even the basic elements of a grammar are derived from conceptually necessary external constraints.
 
 Our technical implementation for doing this will be Optimality Theory \parencite{prince93}, whose specifics will be explained in the ensuing section.
 It should be said that while Optimality Theory is still partially controversial, especially for use in syntax, I employ it here as a mere shorthand for the presumably much more complex computation performed in actually-existing neural nets, for more details, see \textcite{prince97}.
-That is to say, my employment of Optimality Theory needn't entail a belief in a literal {\textsc{Gen}} or a mental tableaux, but only the use of the formalism as an indirect shadow imitating parallel computation in a neural net.
+That is to say, my employment of Optimality Theory needn't entail a belief in a literal {\textsc{Gen}} or a mental tableaux, but only the use of the formalism as an indirect shadow imitating parallel computation in a neural net or some other type of cognitive architecture which is not important \textit{per se} for us now.
 
 Indeed, this can be viewed as an extension of the general goal of \textcite{smolensky06} to explicate linguistic and other cognitive phenomena as attempts to achieve an optimization of constraints or ``Harmony''.
 My goal here is specifically Minimalist, but precisely the tools given by \textcite{smolensky06} allow us to posit an economical language faculty, leaving the heavy lifting and variation at the interfaces to more general cognitive architecture.
 
 It should also be noted that while we have similar goals and methods as prosodically-attuned theories of syntax such as Contiguity Theory \parencite{richards16}, we differ in important ways.
-Firstly, \textcite{richards10,richards16} do indeed assume an incremental bottom-up construction of sentences by \textsc{Merge}, but with an additional prosodic constraint requiring that probes and goals should be prosodically unified.
+Firstly, works like \textcite{richards10,richards16} do indeed assume an incremental bottom-up construction of sentences by \textsc{Merge}, but with an additional prosodic constraint requiring that probes and goals should be prosodically unified.
 Our assumption, rather, is that the language faculty needn't construct a sentence itself, but is in the business of \textit{translation}, translating a representation in semantic space to an linearly-ordered prosodic space.
 
 Additionally, unlike \textcite{richards16}, we are not relying on traditional tree structure and derivations.
@@ -150,23 +152,26 @@ Secondly, \textsc{Gen} can generate candidates with various phonological constit
 That is, each of the elements (S, O and V) must be put in (and may share) a phonological phrase.
 This means for each of the six orders, we have four different non-vacuous candidates, say for the SVO order, we can parse the constituents as [SVO], [S][VO], [SV][O] or [S][V][O].\footnote{There is the logical possibility of generating candidates such as [V][][S][O][], etc. with empty phonological phrases. I will not include candidates like this, but they are dealt with by the to-be-mentioned {\nophi} constraint.}
 
+\subsection{The Nature of the Candidates}
+
+Let's be clear what these candidates are in the linguistic system.
+The designations V, S and O are shorthand for where the subject, verb and object will placed.
+Since we are dealing with constituent-placement based on stress, we would probably be more loyal, although perhaps less communicative to annotate these three elements by \emph{sentential stress level}, i.e.: L(ow), M(iddle) and H(igh), as it will be assumed in line with the aforementioned typological generalization that subjects and objects will always receive a stress superior to that of the verb, objects receiving the most stress.
+
+All that is to say that what \textsc{Gen} is creating is a prosodic template, and the constraints that condition it will be prosodic in nature.
+And then ``after'' candidate-selection, the language faculty will seamlessly map the object onto the highest stressed position, the subject on the mid-level and the verb on the low or stressless position.
+The placement of these elements at the same levels of stress across all languages is precisely the constant behind word order differences.
+What varies is where that stressed position ends up in the sentence, and it is that which our constraints will determine.
+
+Therefore, implicitly, all constituents \emph{already} have stress on them, thus [S][VO] is merely a shorthand for [{\`S}][V\'O] (where the object takes the highest stress, followed by the subject, followed by the verb).
+\textsc{Gen}, therefore, does not generate candidates of the stripe [S][\'V\`O], etc. that violate the stress universals behind sentence constituent stress.
+
 \subsection{Additional Assumptions\label{assump}}
 
 Left out is the possibility of a constituent to be ``extra-metrical.''
 That is, \textsc{Gen} does not generate candidates such as S[VO] or [SO]V where one element is left unprosodified.
 For now, this is an issue of convenience, although it might make for an expanded typology for a further analysis.
 
-Additionally it will be assumed in line with the aforementioned typological generalization that subjects and objects will always receive a stress superior to that of the verb, objects receiving the most stress.
-Therefore, implicitly, all constituents \emph{already} have stress on them, thus [S][VO] is merely a shorthand for [{\`S}][V\'O] (where the object takes the highest stress, followed by the subject, followed by the verb).
-\textsc{Gen}, therefore, does not generate candidates of the stripe [S][\'V\`O], etc. that violate the stress universals behind sentence constituent stress.
-
-This may seem like begging the question, but I'd argue that in reality it is precisely how a theory of prosodic word order should be formulated.
-To make it clear, one can look at it this way: we can replace O, S and V with H, M and L respectively, for high, mid-level and low stress.
-That is, instead we can think of the OT derivation as deciding what points in the sentence sentential stress will be placed and phonological phrase boundaries will be formed.
-
-And then ``after'' candidate-selection, the language faculty will seamlessly map the object onto the highest stressed position, the subject on the mid-level and the verb on the low or stressless position.
-The placement of these elements at the same levels of stress across all languages is precisely the constant behind word order differences.
-What varies is where that stressed position ends up in the sentence, and it is that which our constraints will determine.
 
 \begin{figure}
 	\begin{center}
@@ -335,7 +340,7 @@ To be clear, [VSO] or any other order of elements in one and only one phonologic
 \section{Implementation and Analysis}
 
 
-As mentioned in Section \ref{generation}, the candidate set for transitive clauses consists of 24 viable candidates, that is, for each of the six logical subject, object, verb orders, four different parsings, e.g. for the order SVO: [SVO], [S][VO], [SV][O] and [S][V][O] (see Figure \ref{allcand}).
+As mentioned in Section \ref{generation}, the candidate set for transitive clauses consists of 24 viable candidates, that is, for each of the six logical subject, object, verb orders, four different parsings, e.g., for the order SVO: [SVO], [S][VO], [SV][O] and [S][V][O] (see Figure \ref{allcand}).
 
 The candidate set for intransitive clauses is significantly smaller, consisting only of the only four logically-possible parsings of the subject and verb alone: [SV], [S][V], [VS] and [V][S] (see Figure \ref{instrans}).
 
@@ -343,7 +348,7 @@ Given these possible word orders and parses, and given these constraints, the co
 Ideally, if we have constructed a decent theory, our constraints should be able to account for much of typological reality in actually-existing languages, while ruling out or dispreferring poorly-attesting orders.
 
 It should also be noted that by ``word orders'' we mean pairs of transitive and intransitive orders.
-We might expect a language (i.e. ordering of constraints) that favors SVO clauses to also prefer SV intransitive clauses, also that is not a logical necessity, as languages such as Spanish demonstrate.
+We might expect a language (i.e., ordering of constraints) that favors SVO clauses to also prefer SV intransitive clauses, also that is not a logical necessity, as languages such as Spanish demonstrate.
 
 \subsection{Methods}
 
@@ -430,7 +435,7 @@ We have 8 constraints in our system and therefore the number of theoretically po
 In Figure \ref{connum}, we can see a full list of the constraint rankings with the corresponding number of possible constraint configurations that will generate them.
 
 These are calculated from the product of the factorials of the number of constraints in each constrain block.
-E.g. for the order
+E.g., for the order
 [SVO]/[SV],
 The required order is \cons, \nophi, \initphi, \topf, {\troc} {\textgreater} \cont, {\finphi,} {\textgreater} \iamb: five constraints ranked over two constraints ranked over one. Thus the possible number of constraint configurations is $5! \times 2! \times 1! = 120 \times 2 \times 1 = 240$.
 
@@ -553,7 +558,6 @@ If we expanded our theory to make room for extrametricality, we might allow for 
 Of the ten theoretical parsings, only one allows for the object to appear linearly before the subject: [VO][S]/[VS].
 As stated before from \textcite{dryer13}'s analysis, this is by far the most common of the still vanishingly rare O {\textgreater} S orders, and in our system it seems to be a perfect storm of missed ranking violations as we can see below.
 Such an order arises from a ranking as follows:
-
 
 \begin{center}
 \cont, \iamb, \cons, {\finphi} {\textgreater} \nophi, \initphi, \topf, \troc
